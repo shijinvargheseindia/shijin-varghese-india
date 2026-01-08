@@ -14,6 +14,38 @@ const Index = () => {
     <Layout>
       <HeroSlider />
 
+      {/* Designation Section - Below Hero Slider */}
+      <section className="py-8 md:py-12 bg-gradient-to-b from-navy via-navy to-background relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 chakra-pattern" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <p className="text-sm md:text-base lg:text-lg leading-relaxed max-w-5xl mx-auto">
+            <span className="text-saffron font-semibold">President of India Awardee for Social Service</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-white">Kentucky Colonel, USA</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-india-green font-semibold">Kerala State Government Awardee – Best Youth Social Worker</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-white">World Book of Records Laureate</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-saffron">Indian Government Delegate to South Korea (2014)</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-india-green">Kerala State Government Award – Best NSS Volunteer</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-white">Philanthropist</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-saffron">Humanitarian Advocate</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-white">Esteemed Motivational Speaker</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-india-green">Strategic Financial & Wealth Advisor</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-white">Political & Strategic Marketing Strategist</span>
+            <span className="text-white/60"> | </span>
+            <span className="text-saffron font-semibold">Dedicated Proponent of India's Progress and Cultural Heritage</span>
+          </p>
+        </div>
+      </section>
+
       {/* Impact Stats Section */}
       <section className="py-16 bg-muted relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 chakra-pattern" />

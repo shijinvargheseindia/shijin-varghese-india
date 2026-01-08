@@ -1,6 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
-import { MessageCircle } from "lucide-react";
 
 import hero1 from "@/assets/hero/1.jpg";
 import hero2 from "@/assets/hero/2.jpg";
@@ -114,50 +112,17 @@ const HeroSlider = () => {
         }}
       />
 
-      {/* Content */}
+      {/* Content - Only Name and Tagline */}
       <div className="absolute inset-0 z-20 flex items-center justify-center">
         <div className="container mx-auto px-4 text-center text-white">
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in drop-shadow-lg">
             SHIJIN VARGHESE
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in stagger-1">
+          <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto opacity-95 animate-fade-in stagger-1 drop-shadow-md">
             Serving Humanity. Empowering Youth. Strengthening India.
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in stagger-2">
-            <Link to="/awards" className="btn-hero-primary">
-              Awards & Recognition
-            </Link>
-            <Link to="/positions" className="btn-hero-secondary">
-              Positions Held
-            </Link>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-4 animate-fade-in stagger-3">
-            <Link to="/wealth-management" className="btn-hero-outline">
-              SVI Wealth Management
-            </Link>
-            <Link to="/nextgen-pro" className="btn-hero-outline">
-              SVI NextGen Pro
-            </Link>
-          </div>
-
-          {/* WhatsApp Button */}
-          <div className="mt-8 animate-fade-in stagger-4">
-            <a
-              href="https://wa.me/919633508448"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-whatsapp inline-flex items-center gap-2"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Connect on WhatsApp
-            </a>
-          </div>
         </div>
       </div>
-
     </section>
   );
 };
