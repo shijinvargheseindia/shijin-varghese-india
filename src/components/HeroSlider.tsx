@@ -66,7 +66,7 @@ const HeroSlider = () => {
 
   return (
     <section
-      className="relative h-screen min-h-[600px] overflow-hidden"
+      className="relative w-full min-h-[500px] max-h-[90vh] aspect-[4/3] md:aspect-[16/9] overflow-hidden"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
@@ -77,11 +77,22 @@ const HeroSlider = () => {
           key={index}
           className={`hero-slide ${index === currentSlide ? "active" : ""}`}
         >
+          {/* Blurred background image for letterbox effect */}
           <div className="absolute inset-0 overflow-hidden">
             <img
               src={image}
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover scale-110 blur-xl opacity-60"
+            />
+          </div>
+          
+          {/* Main image - contained, not cropped */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src={image}
               alt={`Shijin Varghese - Image ${index + 1}`}
-              className={`w-full h-full object-cover object-center ${
+              className={`max-w-full max-h-full w-auto h-auto object-contain ${
                 index === currentSlide ? "animate-slow-zoom" : ""
               }`}
             />
