@@ -333,10 +333,10 @@
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px hsla(24, 100%, 60%, 0.4);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
   }
   50% {
-    box-shadow: 0 0 40px hsla(24, 100%, 60%, 0.6);
+    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7);
   }
 }
 
