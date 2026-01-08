@@ -1,88 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
+    /* Indian Tricolour Theme */
+    --saffron: 24 100% 60%;
+    --india-white: 0 0% 100%;
+    --india-green: 136 83% 28%;
+    --navy: 240 40% 15%;
+    --chakra-blue: 220 80% 35%;
+    --gold: 43 96% 56%;
+    
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 40% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 240 40% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 240 40% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 24 100% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 136 83% 28%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 80% 35%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 24 100% 60%;
 
     --radius: 0.5rem;
 
+    /* Gradients */
+    --gradient-tricolour: linear-gradient(135deg, hsl(var(--saffron)) 0%, hsl(var(--india-white)) 50%, hsl(var(--india-green)) 100%);
+    --gradient-hero-overlay: linear-gradient(to bottom, hsla(24, 100%, 60%, 0.3) 0%, hsla(0, 0%, 0%, 0.7) 50%, hsla(136, 83%, 28%, 0.3) 100%);
+    --gradient-saffron: linear-gradient(135deg, hsl(24, 100%, 60%) 0%, hsl(30, 100%, 55%) 100%);
+    --gradient-green: linear-gradient(135deg, hsl(136, 83%, 28%) 0%, hsl(140, 70%, 35%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsla(240, 40%, 15%, 0.15);
+    --shadow-card: 0 4px 20px -4px hsla(240, 40%, 15%, 0.1);
+    --shadow-glow-saffron: 0 0 30px hsla(24, 100%, 60%, 0.3);
+    --shadow-glow-green: 0 0 30px hsla(136, 83%, 28%, 0.3);
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 240 40% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 40% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 40% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 24 100% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 136 83% 28%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 30% 20%;
+    --muted-foreground: 220 9% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 80% 35%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 240 30% 20%;
+    --input: 240 30% 20%;
+    --ring: 24 100% 60%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +112,249 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
   }
 }
+
+@layer components {
+  /* Tricolour underline animation for nav links */
+  .nav-link {
+    @apply relative px-4 py-2 text-sm font-medium transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300;
+    background: linear-gradient(to right, hsl(var(--saffron)), hsl(var(--india-white)), hsl(var(--india-green)));
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Hero button styles */
+  .btn-hero-primary {
+    @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--saffron)) 0%, hsl(30, 100%, 55%) 100%);
+    box-shadow: 0 4px 15px hsla(24, 100%, 60%, 0.4);
+  }
+  
+  .btn-hero-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px hsla(24, 100%, 60%, 0.5);
+  }
+
+  .btn-hero-secondary {
+    @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--india-green)) 0%, hsl(140, 70%, 35%) 100%);
+    box-shadow: 0 4px 15px hsla(136, 83%, 28%, 0.4);
+  }
+  
+  .btn-hero-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px hsla(136, 83%, 28%, 0.5);
+  }
+
+  .btn-hero-outline {
+    @apply px-6 py-3 rounded-lg font-semibold border-2 border-white text-white transition-all duration-300 backdrop-blur-sm;
+    background: hsla(0, 0%, 100%, 0.1);
+  }
+  
+  .btn-hero-outline:hover {
+    @apply bg-white text-foreground;
+  }
+
+  .btn-whatsapp {
+    @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300;
+    background: #25D366;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  }
+  
+  .btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+  }
+
+  /* Floating action buttons */
+  .floating-btn {
+    @apply fixed z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300;
+  }
+  
+  .floating-btn:hover {
+    transform: scale(1.1);
+  }
+
+  /* Ashoka Chakra decorative pattern */
+  .chakra-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%231a5276' stroke-width='1' opacity='0.1'/%3E%3Cg fill='%231a5276' opacity='0.1'%3E%3Cpath d='M50 5v90M5 50h90M15.5 15.5l69 69M84.5 15.5l-69 69'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100px 100px;
+  }
+
+  /* Section styling */
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .section-subheading {
+    @apply text-lg text-muted-foreground max-w-2xl;
+  }
+
+  /* Card styles */
+  .card-tricolour {
+    @apply relative overflow-hidden rounded-xl bg-card;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-tricolour::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-1;
+    background: linear-gradient(to right, hsl(var(--saffron)), hsl(var(--india-white)), hsl(var(--india-green)));
+  }
+
+  /* Hero slider animation */
+  .hero-slide {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-1000;
+  }
+  
+  .hero-slide.active {
+    @apply opacity-100;
+  }
+  
+  .hero-slide img {
+    animation: slowZoom 8s ease-in-out infinite;
+  }
+
+  /* Page transitions */
+  .page-enter {
+    animation: pageEnter 0.5s ease-out forwards;
+  }
+
+  /* Tricolour divider */
+  .tricolour-divider {
+    @apply h-1 w-24 mx-auto rounded-full;
+    background: linear-gradient(to right, hsl(var(--saffron)), hsl(var(--india-white)), hsl(var(--india-green)));
+  }
+}
+
+@layer utilities {
+  .text-gradient-tricolour {
+    background: linear-gradient(to right, hsl(var(--saffron)), hsl(var(--india-green)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-saffron {
+    background-color: hsl(var(--saffron));
+  }
+
+  .bg-india-green {
+    background-color: hsl(var(--india-green));
+  }
+
+  .bg-navy {
+    background-color: hsl(var(--navy));
+  }
+
+  .text-saffron {
+    color: hsl(var(--saffron));
+  }
+
+  .text-india-green {
+    color: hsl(var(--india-green));
+  }
+
+  .text-navy {
+    color: hsl(var(--navy));
+  }
+
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+
+  .border-saffron {
+    border-color: hsl(var(--saffron));
+  }
+
+  .border-india-green {
+    border-color: hsl(var(--india-green));
+  }
+}
+
+/* Keyframes */
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsla(24, 100%, 60%, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px hsla(24, 100%, 60%, 0.6);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Staggered animations */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
