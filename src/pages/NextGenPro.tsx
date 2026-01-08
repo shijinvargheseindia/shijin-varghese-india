@@ -6,33 +6,62 @@ import {
   Building, 
   GraduationCap, 
   Briefcase, 
-  CheckCircle,
   Quote,
   Calendar,
-  Target
+  Target,
+  CheckCircle
 } from "lucide-react";
 
 const trustedBy = [
-  "NSS – Govt of India",
-  "MY Bharath – Govt of India",
-  "Suchitwa Mission – Govt of Kerala",
-  "Kerala State Youth Welfare Board",
-  "Universities & Colleges",
-  "Corporates & CSR",
-  "Media Platforms",
-  "NGOs",
+  "National Service Scheme (NSS) - Government of India",
+  "MY Bharath - Government of India",
+  "Suchitwa Mission – Government of Kerala",
+  "Kerala State Youth Welfare Board - Government of Kerala",
+  "Universities, Colleges & Educational Institutions",
+  "Corporate Organizations & CSR Platforms",
+  "Media & Corporate Training Platforms, including 24 Channel",
+  "Non-Governmental & Social Development Organizations",
 ];
 
-const focusAreas = [
-  { icon: GraduationCap, title: "Students & Youth", description: "Empowering the next generation with skills and mindset for success" },
-  { icon: Users, title: "Educators & Institutions", description: "Building inspired institutions and effective learning environments" },
-  { icon: Briefcase, title: "Corporates", description: "Transformational programs for organizational excellence" },
+const studentFocusAreas = [
+  "Leadership Activation & Self-Discovery",
+  "Motivation, Goal Clarity & Life Direction",
+  "Career Readiness & Campus-to-Corporate Transition",
+  "Digital Discipline & Healthy Social Media Habits",
+  "Anti-Drug Awareness & Addiction-Free Living",
+  "Financial Intelligence for Young Adults",
+  "NSS Volunteer Leadership & Civic Responsibility",
+];
+
+const educatorFocusAreas = [
+  "Youth Psychology & Understanding the Modern Learner",
+  "Classroom Engagement, Innovation & Gamification",
+  "Emotional Intelligence & Stress Management",
+  "Mentorship, Values Education & Institutional Culture Building",
+];
+
+const corporateFocusAreas = [
+  "Leadership Development & Team Alignment",
+  "Mindset Transformation & Performance Psychology",
+  "Communication Excellence & Personal Branding",
+  "Emotional Intelligence in the Workplace",
+  "Stress Management & Work-Life Balance",
+  "Ethics, Values & Purpose-Driven Leadership",
 ];
 
 const programFormats = [
-  "Half-Day Programs",
-  "Full-Day Programs",
-  "2–3 Day Camps",
+  "Half-Day High-Impact Sessions",
+  "Full-Day Intensive Workshops",
+  "2–3 Day Residential Leadership Camps",
+  "Delivery at Campus Venues, Corporate Premises, or Offsite Retreats",
+];
+
+const whyChoose = [
+  "Backed by 17+ years of grassroots and leadership experience",
+  "Strong association with government and statutory bodies",
+  "Highly interactive, engaging, and practice-oriented sessions",
+  "Scientifically structured yet emotionally engaging methodology",
+  "Clear focus on long-term transformation, not temporary motivation",
 ];
 
 const NextGenPro = () => {
@@ -51,7 +80,7 @@ const NextGenPro = () => {
             <blockquote className="font-serif text-2xl md:text-3xl text-foreground italic leading-relaxed">
               "True leadership is not about influence over people, but impact on lives."
             </blockquote>
-            <div className="tricolour-divider mt-8" />
+            <div className="w-24 h-1 bg-saffron mx-auto mt-8" />
           </div>
         </div>
       </section>
@@ -59,17 +88,19 @@ const NextGenPro = () => {
       {/* About */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              <strong className="text-foreground">SVI NextGen Pro</strong> is led by <strong className="text-foreground">Shijin Varghese</strong>, a nationally and internationally recognized youth mentor, humanitarian leader, and transformation coach.
+          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              <strong className="text-foreground">SVI NextGen Pro</strong> is led by <strong className="text-foreground">Shijin Varghese</strong>, a nationally and internationally recognized youth mentor, humanitarian leader, and transformation coach, dedicated to shaping purpose-driven individuals, future-ready professionals, and values-based leaders.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              SVI NextGen Pro works with students, educators, institutions, government bodies, and corporates.
+            <p>
+              SVI NextGen Pro is a leadership and transformation initiative working with students, educators, institutions, government bodies, and corporate organizations. The programs are designed to deliver structured, high-impact learning experiences that go beyond motivation and create measurable, lasting behavioral change.
             </p>
-            <div className="card-tricolour bg-background inline-block px-8 py-4 rounded-xl">
-              <p className="font-serif text-2xl font-bold text-saffron">1,00,000+</p>
-              <p className="text-muted-foreground">Individuals Trained Across India</p>
-            </div>
+            <p>
+              With a strong foundation in youth development, leadership psychology, and real-world engagement, SVI NextGen Pro has successfully delivered training and transformational programs to over <strong className="text-foreground">1,00,000+ individuals</strong> across India, spanning academic institutions, government platforms, NGOs, and corporate environments.
+            </p>
+            <p>
+              Built on credibility, trust, and proven impact, SVI NextGen Pro is recognized for its depth, authenticity, and results-oriented approach.
+            </p>
           </div>
         </div>
       </section>
@@ -77,14 +108,15 @@ const NextGenPro = () => {
       {/* Trusted By */}
       <section className="py-16 bg-navy text-white">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-12">Trusted By</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-12">Trusted by Government, Institutions & Corporates</h2>
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {trustedBy.map((org, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-lg p-4 text-center hover:bg-white/10 transition-colors duration-300"
+                className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex items-center gap-3 hover:bg-white/10 transition-colors duration-300"
               >
-                <p className="text-white/90 text-sm">{org}</p>
+                <span className="text-saffron">▫️</span>
+                <p className="text-white/90">{org}</p>
               </div>
             ))}
           </div>
@@ -95,22 +127,58 @@ const NextGenPro = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="section-heading">Core Focus Areas</h2>
-            <div className="tricolour-divider" />
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">Core Focus Areas</h2>
+            <div className="w-24 h-1 bg-saffron mx-auto" />
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {focusAreas.map((area, index) => (
-              <div
-                key={index}
-                className="card-tricolour bg-card p-8 text-center hover:shadow-elegant transition-shadow duration-300"
-              >
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-saffron/20 to-india-green/20 flex items-center justify-center">
-                  <area.icon className="w-8 h-8 text-saffron" />
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-3">{area.title}</h3>
-                <p className="text-muted-foreground text-sm">{area.description}</p>
+          
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Students & Youth */}
+            <div className="bg-card p-8 rounded-xl border border-border shadow-sm">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-saffron/10 flex items-center justify-center">
+                <GraduationCap className="w-8 h-8 text-saffron" />
               </div>
-            ))}
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">🎓 Students & Youth</h3>
+              <ul className="space-y-2">
+                {studentFocusAreas.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <span className="text-saffron mt-0.5">▫️</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Educators & Institutions */}
+            <div className="bg-card p-8 rounded-xl border border-border shadow-sm">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-india-green/10 flex items-center justify-center">
+                <Users className="w-8 h-8 text-india-green" />
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">👨‍🏫 Educators & Institutions</h3>
+              <ul className="space-y-2">
+                {educatorFocusAreas.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <span className="text-india-green mt-0.5">▫️</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Corporates */}
+            <div className="bg-card p-8 rounded-xl border border-border shadow-sm">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-navy/10 flex items-center justify-center">
+                <Briefcase className="w-8 h-8 text-navy" />
+              </div>
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">🏢 Corporates</h3>
+              <ul className="space-y-2">
+                {corporateFocusAreas.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <span className="text-navy mt-0.5">▫️</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -121,13 +189,33 @@ const NextGenPro = () => {
           <div className="max-w-3xl mx-auto text-center">
             <Calendar className="w-12 h-12 text-india-green mx-auto mb-6" />
             <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-8">Program Formats</h2>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="space-y-3">
               {programFormats.map((format, index) => (
                 <div
                   key={index}
-                  className="card-tricolour bg-background px-6 py-3 rounded-full"
+                  className="bg-background px-6 py-3 rounded-lg border border-border inline-block mx-2 mb-2"
                 >
-                  <span className="text-foreground font-medium">{format}</span>
+                  <span className="text-foreground">▫️ {format}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground text-center mb-8">Why Organizations Choose SVI NextGen Pro</h2>
+            <div className="space-y-4">
+              {whyChoose.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-3 p-4 bg-muted rounded-lg"
+                >
+                  <CheckCircle className="w-5 h-5 text-india-green mt-0.5 flex-shrink-0" />
+                  <span className="text-foreground">{item}</span>
                 </div>
               ))}
             </div>
@@ -140,15 +228,18 @@ const NextGenPro = () => {
         <div className="container mx-auto px-4 text-center">
           <Target className="w-12 h-12 text-saffron mx-auto mb-6" />
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Engagement & Booking</h2>
-          <p className="text-white/70 mb-8 max-w-xl mx-auto">
-            Transform your institution, empower your students, and create future-ready leaders. Get in touch to schedule a program.
+          <p className="text-white/70 mb-4 max-w-2xl mx-auto">
+            SVI NextGen Pro offers customized programs tailored to the specific needs of educational institutions, government bodies, NGOs, and corporate organizations.
+          </p>
+          <p className="text-white/80 mb-8">
+            📩 To book a session or explore collaborations, please connect through the Contact section.
           </p>
           <Link to="/contact" className="btn-hero-primary inline-block">
             Contact for Booking
           </Link>
-          <div className="mt-8 pt-8 border-t border-white/10">
-            <p className="font-serif text-xl text-saffron">SVI NextGen Pro</p>
-            <p className="text-white/60 mt-2">Unleashing Human Potential. Building Inspired Institutions. Creating Future-Ready Leaders.</p>
+          <div className="mt-12 pt-8 border-t border-white/10">
+            <p className="font-serif text-2xl text-saffron font-bold">SVI NextGen Pro</p>
+            <p className="text-white/80 mt-2 text-lg">Unleashing Human Potential. Building Inspired Institutions. Creating Future-Ready Leaders.</p>
           </div>
         </div>
       </section>

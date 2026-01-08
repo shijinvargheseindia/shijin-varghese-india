@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
-import { Briefcase, Building, GraduationCap, Globe, Users } from "lucide-react";
+import { Briefcase, Building, Globe, Users } from "lucide-react";
 
 const currentPositions = [
   "Managing Director and Family Wealth Advisor – SVI Wealth Management",
@@ -73,8 +73,8 @@ const PositionSection = ({ title, icon: Icon, positions, bgColor = "bg-backgroun
   <section className={`py-16 ${bgColor}`}>
     <div className="container mx-auto px-4">
       <div className="flex items-center gap-4 mb-8">
-        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-saffron to-india-green flex items-center justify-center flex-shrink-0">
-          <Icon className="w-6 h-6 text-white" />
+        <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center flex-shrink-0 shadow-sm">
+          <Icon className="w-6 h-6 text-foreground" />
         </div>
         <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">{title}</h2>
       </div>
@@ -82,7 +82,7 @@ const PositionSection = ({ title, icon: Icon, positions, bgColor = "bg-backgroun
         {positions.map((position, index) => (
           <div
             key={index}
-            className="card-tricolour bg-card p-4 hover:shadow-card transition-shadow duration-300"
+            className="bg-card p-4 rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-300"
           >
             <p className="text-foreground">{position}</p>
           </div>
@@ -106,14 +106,14 @@ const Positions = () => {
         positions={currentPositions}
       />
 
-      <div className="tricolour-divider mx-auto" />
+      <div className="w-24 h-1 bg-border mx-auto" />
 
       <section className="py-12 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
             Previous Leadership Roles
           </h2>
-          <div className="tricolour-divider" />
+          <div className="w-24 h-1 bg-muted-foreground/30 mx-auto" />
         </div>
       </section>
 
