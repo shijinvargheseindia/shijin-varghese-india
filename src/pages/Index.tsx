@@ -35,9 +35,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Full About Section */}
+      {/* About Shijin Varghese Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">ABOUT SHIJIN VARGHESE</h2>
+            <div className="w-24 h-1 bg-saffron mx-auto" />
+          </div>
           <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
               Shijin Varghese is a deeply patriotic and distinguished global youth humanitarian and social advocate from Kerala, India, with over two decades of dedicated service to societal development. His work spans healthcare, education, poverty alleviation, skill development, tribal welfare, and environmental sustainability, reflecting a strong commitment to equitable and sustainable progress.
@@ -58,10 +62,45 @@ const Index = () => {
               His work with tribal communities includes constructing temporary shelters, providing nutritional food for women and children, distributing clothing and essential items, conducting tuition classes, and promoting menstrual hygiene awareness by providing sanitary cotton pads to underprivileged women.
             </p>
             <p>
-              He has played a vital role in disaster response efforts, notably during the 2018 Kerala floods and during the COVID-19 pandemic. When the virus first affected Pathanamthitta District, he became the first volunteer in India to actively engage in COVID relief activities, playing a pioneering role in frontline support, public assistance, and emergency response during the initial outbreak.
+              He has played a vital role in disaster response efforts, notably during the 2018 Kerala floods and during the COVID-19 pandemic, when the virus first affected Pathanamthitta District, he became the first volunteer in India to actively engage in COVID relief activities, playing a pioneering role in frontline support, public assistance, and emergency response during the initial outbreak.
             </p>
             <p>
               Through self-employment initiatives, he has empowered individuals by distributing sewing machines, hens, and goats, fostering economic independence.
+            </p>
+
+            <h3 className="font-serif text-2xl font-bold text-foreground pt-6">Honours & Recognition</h3>
+            <p>
+              His contributions have been recognized with several prestigious honors, including the Indira Gandhi National Award, presented by the Honorable President of India, Shri Pranab Mukherjee.
+            </p>
+            <p>
+              He has also received the Kerala State Swami Vivekananda Yuva Prathibha Puraskaram, Kerala State Best NSS Volunteer Award, and numerous international, national, and state-level recognitions.
+            </p>
+            <p>
+              Notably, he has been conferred the title of Kentucky Colonel, the highest civilian honour of the Commonwealth of Kentucky, USA, bestowed by the Honourable Governor of Kentucky, in recognition of his exemplary service, leadership, and humanitarian contributions.
+            </p>
+            <p>
+              He also holds a World Book of Records title for collecting over 100,000 units of blood in a single day.
+            </p>
+            <p>
+              In 2014, he represented India as an official government delegate at the International Youth Exchange Programme in South Korea.
+            </p>
+            <p>
+              Currently, he serves as the Kerala State President of the National Integrated Forum of Artists and Activists (NIFAA) and as Chairman of the Dr. APJ Abdul Kalam Memorial Sadbhavam Charitable Trust, recognized by the Government of Kerala as the Best NGO in Pathanamthitta District.
+            </p>
+            <p>
+              His previous roles include leadership positions with the Kerala State Youth Welfare Board, Nehru Yuva Kendra, District Legal Services Authority, COVID-19 response initiatives, election awareness campaigns, and youth volunteer organizations. He is also an advisor to multiple NGOs in India and abroad.
+            </p>
+            <p>
+              Academically, he holds a postgraduate degree in Commerce along with multiple diplomas and certifications. His achievements have contributed to University of Kerala and NSS College, Pandalam attaining NAAC A Grade status, and he made history as the first student in India to receive postgraduate admission through a special seat at Kerala University.
+            </p>
+            <p>
+              Under his mentorship, more than 100 youths have received national awards and grown into leaders, entrepreneurs, and public figures.
+            </p>
+            <p>
+              Professionally, he serves as Managing Director and Family Wealth Advisor at SVI Wealth Management and as Director and Trainer at SVI NextGenPro, combining ethical leadership with financial guidance and youth development.
+            </p>
+            <p>
+              With a strong network of volunteers across Kerala, India, and several countries worldwide, his work continues to create meaningful impact. His life and leadership reflect a deep commitment to humanitarian service, youth empowerment, and building a more compassionate and equitable society.
             </p>
           </div>
         </div>
