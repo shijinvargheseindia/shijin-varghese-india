@@ -88,13 +88,13 @@ const NextGenPro = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              <strong className="text-foreground">SVI NextGen Pro</strong> is led by <strong className="text-foreground">Shijin Varghese</strong>, a nationally and internationally recognized youth mentor, humanitarian leader, and transformation coach, dedicated to shaping purpose-driven individuals, future-ready professionals, and values-based leaders.
+              SVI NextGen Pro is led by Shijin Varghese, a nationally and internationally recognized youth mentor, humanitarian leader, and transformation coach, dedicated to shaping purpose-driven individuals, future-ready professionals, and values-based leaders.
             </p>
             <p>
               SVI NextGen Pro is a leadership and transformation initiative working with students, educators, institutions, government bodies, and corporate organizations. The programs are designed to deliver structured, high-impact learning experiences that go beyond motivation and create measurable, lasting behavioral change.
             </p>
             <p>
-              With a strong foundation in youth development, leadership psychology, and real-world engagement, SVI NextGen Pro has successfully delivered training and transformational programs to over <strong className="text-foreground">1,00,000+ individuals</strong> across India, spanning academic institutions, government platforms, NGOs, and corporate environments.
+              With a strong foundation in youth development, leadership psychology, and real-world engagement, SVI NextGen Pro has successfully delivered training and transformational programs to over 1,00,000+ individuals across India, spanning academic institutions, government platforms, NGOs, and corporate environments.
             </p>
             <p>
               Built on credibility, trust, and proven impact, SVI NextGen Pro is recognized for its depth, authenticity, and results-oriented approach.
@@ -116,8 +116,7 @@ const NextGenPro = () => {
                 key={index}
                 className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex items-center gap-3 hover:bg-white/10 transition-colors duration-300"
               >
-                <span className="text-saffron">▫️</span>
-                <p className="text-white/90">{org}</p>
+                <span className="text-white/90">{org}</span>
               </div>
             ))}
           </div>
@@ -142,7 +141,6 @@ const NextGenPro = () => {
               <ul className="space-y-2 mt-4">
                 {studentFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
-                    <span className="text-saffron mt-0.5">▫️</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -158,7 +156,6 @@ const NextGenPro = () => {
               <ul className="space-y-2 mt-4">
                 {educatorFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
-                    <span className="text-india-green mt-0.5">▫️</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -174,7 +171,6 @@ const NextGenPro = () => {
               <ul className="space-y-2 mt-4">
                 {corporateFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
-                    <span className="text-navy mt-0.5">▫️</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -196,7 +192,7 @@ const NextGenPro = () => {
                   key={index}
                   className="bg-background px-6 py-4 rounded-lg border border-border text-left md:text-center"
                 >
-                  <span className="text-foreground">▫️ {format}</span>
+                  <span className="text-foreground">{format}</span>
                 </div>
               ))}
             </div>
