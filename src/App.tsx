@@ -8,7 +8,6 @@ import Awards from "./pages/Awards";
 import Positions from "./pages/Positions";
 import WealthManagement from "./pages/WealthManagement";
 import NextGenPro from "./pages/NextGenPro";
-import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -26,7 +25,6 @@ const App = () => (
           <Route path="/positions" element={<Positions />} />
           <Route path="/wealth-management" element={<WealthManagement />} />
           <Route path="/nextgen-pro" element={<NextGenPro />} />
-          <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

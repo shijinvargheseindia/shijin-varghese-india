@@ -38,7 +38,7 @@ const Contact = () => {
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/shijin.varghese.16/", label: "Facebook", color: "hover:bg-[#1877F2]" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/shijin-varghese-91693410b/", label: "LinkedIn", color: "hover:bg-[#0A66C2]" },
-    { icon: Instagram, href: "#", label: "Instagram", color: "hover:bg-[#E4405F]" },
+    { icon: Instagram, href: "https://www.instagram.com/sv_india/", label: "Instagram", color: "hover:bg-[#E4405F]" },
   ];
 
   return (
