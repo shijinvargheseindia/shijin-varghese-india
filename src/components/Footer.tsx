@@ -10,14 +10,13 @@ const Footer = () => {
     { name: "Positions Held", path: "/positions" },
     { name: "SVI Wealth Management", path: "/wealth-management" },
     { name: "SVI NextGen Pro", path: "/nextgen-pro" },
-    { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
   ];
 
   const socialLinks = [
     { icon: Facebook, href: "https://www.facebook.com/shijin.varghese.16/", label: "Facebook" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/shijin-varghese-91693410b/", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/sv_india/", label: "Instagram" },
   ];
 
   return (

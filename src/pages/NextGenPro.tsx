@@ -3,12 +3,10 @@ import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
 import { 
   Users, 
-  Building, 
   GraduationCap, 
   Briefcase, 
   Quote,
   Calendar,
-  Target,
   CheckCircle
 } from "lucide-react";
 
@@ -108,7 +106,10 @@ const NextGenPro = () => {
       {/* Trusted By */}
       <section className="py-16 bg-navy text-white">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-12">Trusted by Government, Institutions & Corporates</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-4">Trusted by Government, Institutions & Corporates</h2>
+          <p className="text-white/70 text-center mb-12 max-w-2xl mx-auto">
+            SVI NextGen Pro programs and sessions have been delivered for and in association with:
+          </p>
           <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {trustedBy.map((org, index) => (
               <div
@@ -137,8 +138,8 @@ const NextGenPro = () => {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-saffron/10 flex items-center justify-center">
                 <GraduationCap className="w-8 h-8 text-saffron" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">🎓 Students & Youth</h3>
-              <ul className="space-y-2">
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-2 text-center">Programs for Students & Youth</h3>
+              <ul className="space-y-2 mt-4">
                 {studentFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
                     <span className="text-saffron mt-0.5">▫️</span>
@@ -153,8 +154,8 @@ const NextGenPro = () => {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-india-green/10 flex items-center justify-center">
                 <Users className="w-8 h-8 text-india-green" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">👨‍🏫 Educators & Institutions</h3>
-              <ul className="space-y-2">
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-2 text-center">Programs for Educators & Institutions</h3>
+              <ul className="space-y-2 mt-4">
                 {educatorFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
                     <span className="text-india-green mt-0.5">▫️</span>
@@ -169,8 +170,8 @@ const NextGenPro = () => {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-navy/10 flex items-center justify-center">
                 <Briefcase className="w-8 h-8 text-navy" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">🏢 Corporates</h3>
-              <ul className="space-y-2">
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-2 text-center">Programs for Corporates & Organizations</h3>
+              <ul className="space-y-2 mt-4">
                 {corporateFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
                     <span className="text-navy mt-0.5">▫️</span>
@@ -193,7 +194,7 @@ const NextGenPro = () => {
               {programFormats.map((format, index) => (
                 <div
                   key={index}
-                  className="bg-background px-6 py-3 rounded-lg border border-border inline-block mx-2 mb-2"
+                  className="bg-background px-6 py-4 rounded-lg border border-border text-left md:text-center"
                 >
                   <span className="text-foreground">▫️ {format}</span>
                 </div>
@@ -226,13 +227,12 @@ const NextGenPro = () => {
       {/* CTA */}
       <section className="py-16 bg-navy text-white">
         <div className="container mx-auto px-4 text-center">
-          <Target className="w-12 h-12 text-saffron mx-auto mb-6" />
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Engagement & Booking</h2>
           <p className="text-white/70 mb-4 max-w-2xl mx-auto">
             SVI NextGen Pro offers customized programs tailored to the specific needs of educational institutions, government bodies, NGOs, and corporate organizations.
           </p>
           <p className="text-white/80 mb-8">
-            📩 To book a session or explore collaborations, please connect through the Contact section.
+            To book a session or explore collaborations, please connect through the Contact section.
           </p>
           <Link to="/contact" className="btn-hero-primary inline-block">
             Contact for Booking

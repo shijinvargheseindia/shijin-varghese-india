@@ -8,7 +8,6 @@ const navItems = [
   { name: "Positions Held", path: "/positions" },
   { name: "SVI Wealth Management", path: "/wealth-management" },
   { name: "SVI NextGen Pro", path: "/nextgen-pro" },
-  { name: "Gallery", path: "/gallery" },
   { name: "Contact", path: "/contact" },
 ];
 
