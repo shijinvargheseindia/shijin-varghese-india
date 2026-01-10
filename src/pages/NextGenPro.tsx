@@ -10,6 +10,8 @@ import {
   CheckCircle
 } from "lucide-react";
 
+import sviNextgenLogo from "@/assets/logos/svi-nextgen-logo.jpeg";
+
 const trustedBy = [
   "National Service Scheme (NSS) - Government of India",
   "MY Bharath - Government of India",
@@ -70,10 +72,19 @@ const NextGenPro = () => {
         subtitle="Unleashing Human Potential. Building Inspired Institutions. Creating Future-Ready Leaders."
       />
 
-      {/* Quote Section */}
+      {/* Logo & Quote Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
+            {/* Logo */}
+            <div className="flex justify-center mb-10">
+              <img 
+                src={sviNextgenLogo} 
+                alt="SVI NextGen Pro Logo" 
+                className="w-48 h-48 md:w-56 md:h-56 object-contain rounded-2xl shadow-elegant"
+              />
+            </div>
+            
             <Quote className="w-12 h-12 text-saffron mx-auto mb-6 opacity-50" />
             <blockquote className="font-serif text-2xl md:text-3xl text-foreground italic leading-relaxed">
               "True leadership is not about influence over people, but impact on lives."
@@ -86,7 +97,7 @@ const NextGenPro = () => {
       {/* About */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
             <p>
               SVI NextGen Pro is led by Shijin Varghese, a nationally and internationally recognized youth mentor, humanitarian leader, and transformation coach, dedicated to shaping purpose-driven individuals, future-ready professionals, and values-based leaders.
             </p>
@@ -137,10 +148,11 @@ const NextGenPro = () => {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-saffron/10 flex items-center justify-center">
                 <GraduationCap className="w-8 h-8 text-saffron" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-2 text-center">Programs for Students & Youth</h3>
-              <ul className="space-y-2 mt-4">
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">Programs for Students & Youth</h3>
+              <ul className="space-y-3 mt-4">
                 {studentFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <CheckCircle className="w-4 h-4 text-saffron mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -152,10 +164,11 @@ const NextGenPro = () => {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-india-green/10 flex items-center justify-center">
                 <Users className="w-8 h-8 text-india-green" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-2 text-center">Programs for Educators & Institutions</h3>
-              <ul className="space-y-2 mt-4">
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">Programs for Educators & Institutions</h3>
+              <ul className="space-y-3 mt-4">
                 {educatorFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <CheckCircle className="w-4 h-4 text-india-green mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -167,10 +180,11 @@ const NextGenPro = () => {
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-navy/10 flex items-center justify-center">
                 <Briefcase className="w-8 h-8 text-navy" />
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-2 text-center">Programs for Corporates & Organizations</h3>
-              <ul className="space-y-2 mt-4">
+              <h3 className="font-serif text-xl font-semibold text-foreground mb-4 text-center">Programs for Corporates & Organizations</h3>
+              <ul className="space-y-3 mt-4">
                 {corporateFocusAreas.map((item, index) => (
                   <li key={index} className="flex items-start gap-2 text-muted-foreground text-sm">
+                    <CheckCircle className="w-4 h-4 text-navy mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}

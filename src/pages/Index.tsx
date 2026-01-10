@@ -29,7 +29,7 @@ const Index = () => {
       {/* Designation Section - Clean white/neutral background */}
       <section className="py-8 md:py-12 bg-background border-b">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-sm md:text-base lg:text-lg leading-relaxed max-w-5xl mx-auto text-muted-foreground">
+          <p className="text-sm md:text-base lg:text-lg leading-relaxed max-w-5xl mx-auto text-foreground font-semibold">
             President of India Awardee for Social Service | Kentucky Colonel, USA | Kerala State Government Awardee – Best Youth Social Worker | World Book of Records Laureate | Indian Government Delegate to South Korea (2014) | Kerala State Government Award – Best NSS Volunteer | Philanthropist | Humanitarian Advocate | Esteemed Motivational Speaker | Strategic Financial & Wealth Advisor | Political & Strategic Marketing Strategist | Dedicated Proponent of India's Progress and Cultural Heritage
           </p>
         </div>
@@ -68,7 +68,6 @@ const Index = () => {
               Through self-employment initiatives, he has empowered individuals by distributing sewing machines, hens, and goats, fostering economic independence.
             </p>
 
-            <h3 className="font-serif text-2xl font-bold text-foreground pt-6">Honours & Recognition</h3>
             <p>
               His contributions have been recognized with several prestigious honors, including the Indira Gandhi National Award, presented by the Honorable President of India, Shri Pranab Mukherjee.
             </p>

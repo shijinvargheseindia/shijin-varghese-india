@@ -8,14 +8,20 @@ import {
   Target, 
   Users, 
   CheckCircle, 
-  Award,
   ChevronLeft,
   ChevronRight,
   Heart,
   GraduationCap,
   Clock,
-  Wallet
+  Wallet,
+  FileCheck
 } from "lucide-react";
+
+import sviWealthLogo from "@/assets/logos/svi-wealth-logo.jpeg";
+import testimonial1 from "@/assets/testimonials/testimonial-1.jpeg";
+import testimonial2 from "@/assets/testimonials/testimonial-2.jpeg";
+import testimonial3 from "@/assets/testimonials/testimonial-3.jpeg";
+import testimonial4 from "@/assets/testimonials/testimonial-4.jpeg";
 
 const services = [
   { icon: TrendingUp, title: "Financial Planning", description: "Comprehensive financial strategies tailored to your goals" },
@@ -25,6 +31,8 @@ const services = [
   { icon: Wallet, title: "Wealth Creation & Investment Advisory", description: "Build and grow your wealth strategically" },
   { icon: Target, title: "Short-Term & Long-Term Investments", description: "Balanced portfolio for all time horizons" },
   { icon: Shield, title: "Risk Management", description: "Protect your assets and minimize risks" },
+  { icon: FileCheck, title: "Life Insurance", description: "Comprehensive life coverage for your family's security" },
+  { icon: Shield, title: "Term Insurance", description: "Affordable protection with high coverage" },
 ];
 
 const whyChooseUs = [
@@ -44,23 +52,22 @@ const whoShouldConsult = [
   "Anyone seeking financial clarity",
 ];
 
-// Placeholder testimonial images - user will replace later
-const testimonialPlaceholders = [
-  { id: 1, bg: "bg-gradient-to-br from-saffron/20 to-india-green/20" },
-  { id: 2, bg: "bg-gradient-to-br from-india-green/20 to-saffron/20" },
-  { id: 3, bg: "bg-gradient-to-br from-saffron/30 to-india-green/10" },
-  { id: 4, bg: "bg-gradient-to-br from-india-green/30 to-saffron/10" },
+const testimonialImages = [
+  testimonial1,
+  testimonial2,
+  testimonial3,
+  testimonial4,
 ];
 
 const WealthManagement = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const nextTestimonial = useCallback(() => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonialPlaceholders.length);
+    setCurrentTestimonial((prev) => (prev + 1) % testimonialImages.length);
   }, []);
 
   const prevTestimonial = useCallback(() => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonialPlaceholders.length) % testimonialPlaceholders.length);
+    setCurrentTestimonial((prev) => (prev - 1 + testimonialImages.length) % testimonialImages.length);
   }, []);
 
   useEffect(() => {
@@ -75,19 +82,30 @@ const WealthManagement = () => {
         subtitle="Building Financial Security. Creating Lasting Legacies."
       />
 
-      {/* Intro Section */}
+      {/* Logo & Intro Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              SVI Wealth Management, led by <strong className="text-foreground">Shijin Varghese, Managing Director and Senior Family Wealth Advisor</strong>, is a professional financial advisory practice dedicated to long-term wealth creation, protection, and legacy planning.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              The firm is built on a strong philosophy of ethical advisory, transparency, and client-first financial planning. Every recommendation is carefully aligned with the client's life goals, risk profile, family responsibilities, and future aspirations.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              SVI Wealth Management partners with individuals and families to help them make well-informed financial decisions that deliver stability, confidence, and sustainable financial growth across every stage of life.
-            </p>
+          <div className="max-w-4xl mx-auto">
+            {/* Logo */}
+            <div className="flex justify-center mb-12">
+              <img 
+                src={sviWealthLogo} 
+                alt="SVI Wealth Management Logo" 
+                className="w-48 h-48 md:w-56 md:h-56 object-contain rounded-2xl shadow-elegant"
+              />
+            </div>
+            
+            <div className="text-center">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                SVI Wealth Management, led by <strong className="text-foreground">Shijin Varghese, Managing Director and Senior Family Wealth Advisor</strong>, is a professional financial advisory practice dedicated to long-term wealth creation, protection, and legacy planning.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                The firm is built on a strong philosophy of ethical advisory, transparency, and client-first financial planning. Every recommendation is carefully aligned with the client's life goals, risk profile, family responsibilities, and future aspirations.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                SVI Wealth Management partners with individuals and families to help them make well-informed financial decisions that deliver stability, confidence, and sustainable financial growth across every stage of life.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -98,12 +116,11 @@ const WealthManagement = () => {
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-center mb-12">
             Experience & Credibility
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { value: "8+", label: "Years of Professional Experience" },
+              { value: "10+", label: "Years of Professional Experience" },
               { value: "500+", label: "Families & Individuals Advised" },
               { value: "₹20 Cr+", label: "Assets Under Advisory" },
-              { value: "President", label: "of India Awardee" },
             ].map((stat, index) => (
               <div key={index} className="text-center p-6 rounded-xl bg-white/5 backdrop-blur-sm">
                 <div className="font-serif text-4xl font-bold text-saffron mb-2">{stat.value}</div>
@@ -184,16 +201,16 @@ const WealthManagement = () => {
                 className="flex transition-transform duration-500 ease-out"
                 style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
               >
-                {testimonialPlaceholders.map((item) => (
+                {testimonialImages.map((image, index) => (
                   <div
-                    key={item.id}
-                    className={`w-full flex-shrink-0 aspect-video ${item.bg} rounded-xl flex items-center justify-center`}
+                    key={index}
+                    className="w-full flex-shrink-0"
                   >
-                    <div className="text-center text-muted-foreground">
-                      <Award className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                      <p className="text-lg">Testimonial Image {item.id}</p>
-                      <p className="text-sm">(Placeholder - User will upload)</p>
-                    </div>
+                    <img 
+                      src={image} 
+                      alt={`Customer testimonial ${index + 1}`}
+                      className="w-full h-auto rounded-xl shadow-lg"
+                    />
                   </div>
                 ))}
               </div>
@@ -217,7 +234,7 @@ const WealthManagement = () => {
 
             {/* Dots */}
             <div className="flex justify-center gap-2 mt-6">
-              {testimonialPlaceholders.map((_, index) => (
+              {testimonialImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}

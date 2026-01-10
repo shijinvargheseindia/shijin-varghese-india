@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Linkedin, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,6 +17,7 @@ const Footer = () => {
     { icon: Facebook, href: "https://www.facebook.com/shijin.varghese.16/", label: "Facebook" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/shijin-varghese-91693410b/", label: "LinkedIn" },
     { icon: Instagram, href: "https://www.instagram.com/sv_india/", label: "Instagram" },
+    { icon: Youtube, href: "https://www.youtube.com/@shijinvarghese", label: "YouTube" },
   ];
 
   return (
@@ -28,12 +29,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
+            <Link to="/" className="flex items-center gap-3 mb-4 hover:opacity-90 transition-opacity">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-saffron via-white to-india-green flex items-center justify-center">
-                <span className="font-serif font-bold text-lg text-navy">SV</span>
+                <span className="font-serif font-bold text-lg text-navy">SVI</span>
               </div>
               <span className="font-serif text-2xl font-semibold">Shijin Varghese</span>
-            </div>
+            </Link>
             <p className="text-white/70 mb-6 leading-relaxed max-w-md">
               Global Youth Humanitarian Leader from Kerala, India. Dedicated to serving humanity, 
               empowering youth, and strengthening the nation through over two decades of social service.

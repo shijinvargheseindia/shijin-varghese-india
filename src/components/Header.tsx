@@ -41,7 +41,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-saffron via-background to-india-green flex items-center justify-center shadow-lg group-hover:shadow-glow-saffron transition-shadow duration-300">
-              <span className="font-serif font-bold text-xl text-navy">SV</span>
+              <span className="font-serif font-bold text-xl text-navy">SVI</span>
             </div>
             <span className={`font-serif text-xl font-semibold hidden sm:block transition-colors duration-300 ${
               isScrolled ? "text-foreground" : "text-white"
