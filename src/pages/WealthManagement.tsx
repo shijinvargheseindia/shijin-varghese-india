@@ -22,6 +22,9 @@ import testimonial1 from "@/assets/testimonials/testimonial-1.jpeg";
 import testimonial2 from "@/assets/testimonials/testimonial-2.jpeg";
 import testimonial3 from "@/assets/testimonials/testimonial-3.jpeg";
 import testimonial4 from "@/assets/testimonials/testimonial-4.jpeg";
+import adBanner1 from "@/assets/ads/ad-banner-1.jpeg";
+import adBanner2 from "@/assets/ads/ad-banner-2.jpeg";
+import adBanner3 from "@/assets/ads/ad-banner-3.jpeg";
 
 const services = [
   { icon: TrendingUp, title: "Financial Planning", description: "Comprehensive financial strategies tailored to your goals" },
@@ -147,6 +150,32 @@ const WealthManagement = () => {
                 <service.icon className="w-10 h-10 text-saffron mb-4" />
                 <h3 className="font-serif text-lg font-semibold text-foreground mb-2">{service.title}</h3>
                 <p className="text-muted-foreground text-sm">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Highlights */}
+      <section className="py-20 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="section-heading">Service Highlights</h2>
+            <div className="tricolour-divider" />
+          </div>
+          
+          <div className="flex flex-col gap-8 max-w-[1100px] mx-auto">
+            {[adBanner1, adBanner2, adBanner3].map((banner, index) => (
+              <div 
+                key={index}
+                className="w-full bg-background rounded-xl border border-border shadow-card overflow-hidden"
+              >
+                <img 
+                  src={banner} 
+                  alt={`Service highlight ${index + 1}`}
+                  className="w-full h-auto object-contain"
+                  style={{ maxWidth: '100%' }}
+                />
               </div>
             ))}
           </div>
