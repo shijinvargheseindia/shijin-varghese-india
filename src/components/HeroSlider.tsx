@@ -97,7 +97,7 @@ const HeroSlider = () => {
         >
           
           {/* Main image - contained, not cropped */}
-          <div className="absolute inset-0 flex items-center justify-center max-w-5xl mx-auto">
+          <div className="absolute inset-0 flex items-start md:items-center justify-center max-w-5xl mx-auto">
             {(loadedImages.has(index) || index === currentSlide) ? (
               <img
                 src={image}
