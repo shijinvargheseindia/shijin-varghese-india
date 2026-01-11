@@ -165,7 +165,7 @@ const WealthManagement = () => {
             <div className="tricolour-divider" />
           </div>
           
-          <div className="flex flex-col gap-8 max-w-[900px] mx-auto px-4 md:px-0">
+          <div className="flex flex-col gap-8 max-w-[700px] mx-auto px-4 md:px-0">
             {[adBanner1, adBanner2, adBanner3].map((banner, index) => (
               <div 
                 key={index}
@@ -223,7 +223,7 @@ const WealthManagement = () => {
             <div className="tricolour-divider" />
           </div>
 
-          <div className="relative max-w-lg mx-auto">
+          <div className="relative max-w-sm mx-auto">
             {/* Carousel - Show ONE testimonial at a time */}
             <div className="overflow-hidden rounded-xl">
               <div
@@ -235,7 +235,7 @@ const WealthManagement = () => {
                     key={index}
                     className="w-full flex-shrink-0 px-2"
                   >
-                    <div className="bg-card rounded-xl border border-border shadow-card overflow-hidden max-w-md mx-auto">
+                    <div className="bg-card rounded-xl border border-border shadow-card overflow-hidden max-w-xs mx-auto">
                       <img 
                         src={image} 
                         alt={`Customer testimonial ${index + 1}`}

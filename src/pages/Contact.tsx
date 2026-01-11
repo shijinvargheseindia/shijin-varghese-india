@@ -149,8 +149,8 @@ const Contact = () => {
                 {isSubmitted ? (
                   <div className="text-center py-12">
                     <CheckCircle className="w-16 h-16 text-india-green mx-auto mb-4" />
-                    <h3 className="font-serif text-xl font-semibold text-foreground mb-2">Message Sent!</h3>
-                    <p className="text-muted-foreground mb-6">Thank you for reaching out. We'll get back to you soon.</p>
+                    <h3 className="font-serif text-xl font-semibold text-foreground mb-2">Thank you.</h3>
+                    <p className="text-muted-foreground mb-6">Your message has been sent successfully.</p>
                     <button
                       onClick={() => setIsSubmitted(false)}
                       className="btn-hero-primary"
