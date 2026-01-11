@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Awards & Courtesy", path: "/awards-courtesy" },
+  { name: "Awards & Courtesy Visits", path: "/awards-courtesy" },
   { name: "Positions Held", path: "/positions" },
   { name: "SVI Wealth Management", path: "/wealth-management" },
   { name: "SVI NextGen Pro", path: "/nextgen-pro" },
@@ -30,11 +30,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-elegant"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background shadow-elegant"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -43,9 +39,7 @@ const Header = () => {
             <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-saffron via-background to-india-green flex items-center justify-center shadow-lg group-hover:shadow-glow-saffron transition-shadow duration-300">
               <span className="font-serif font-bold text-xl text-navy">SVI</span>
             </div>
-            <span className={`font-serif text-xl font-semibold hidden sm:block transition-colors duration-300 ${
-              isScrolled ? "text-foreground" : "text-white"
-            }`}>
+            <span className="font-serif text-xl font-semibold hidden sm:block transition-colors duration-300 text-foreground">
               Shijin Varghese
             </span>
           </Link>
@@ -59,9 +53,7 @@ const Header = () => {
                 className={`nav-link ${
                   location.pathname === item.path
                     ? "text-saffron"
-                    : isScrolled
-                    ? "text-foreground hover:text-saffron"
-                    : "text-white hover:text-saffron"
+                    : "text-foreground hover:text-saffron"
                 }`}
               >
                 {item.name}
@@ -71,14 +63,14 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-background/20 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+              <X className="w-6 h-6 text-foreground" />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
+              <Menu className="w-6 h-6 text-foreground" />
             )}
           </button>
         </div>
@@ -86,7 +78,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-x-0 top-20 bg-background/98 backdrop-blur-lg shadow-elegant transition-all duration-300 ${
+        className={`lg:hidden fixed inset-x-0 top-20 bg-background shadow-elegant transition-all duration-300 z-50 ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >

@@ -81,32 +81,23 @@ const HeroSlider = () => {
 
   return (
     <section
-      className="relative w-full min-h-[400px] max-h-[85vh] aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-navy"
+      className="relative w-full min-h-[400px] max-h-[75vh] aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-navy mt-20"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
+      {/* Solid background - no blur */}
+      <div className="absolute inset-0 bg-navy" />
+      
       {/* Slides - NO text overlay */}
       {heroImages.map((image, index) => (
         <div
           key={index}
           className={`hero-slide ${index === currentSlide ? "active" : ""}`}
         >
-          {/* Blurred background image for letterbox effect */}
-          <div className="absolute inset-0 overflow-hidden">
-            {(loadedImages.has(index) || index === currentSlide) && (
-              <img
-                src={image}
-                alt=""
-                aria-hidden="true"
-                className="w-full h-full object-cover scale-110 blur-xl opacity-60"
-                loading={index === 0 ? "eager" : "lazy"}
-              />
-            )}
-          </div>
           
           {/* Main image - contained, not cropped */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center max-w-5xl mx-auto">
             {(loadedImages.has(index) || index === currentSlide) ? (
               <img
                 src={image}

@@ -100,7 +100,7 @@ const AwardsCourtesy = () => {
   return (
     <Layout>
       <PageHeader
-        title="Awards & Courtesy"
+        title="Awards & Courtesy Visits"
         subtitle="Honours, Recognitions & Distinguished Courtesy Visits"
       />
 
