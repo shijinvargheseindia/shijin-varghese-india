@@ -80,6 +80,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState(""); // Honeypot field - should remain empty
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -96,6 +97,13 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({});
+
+    // Check honeypot - if filled, it's likely a bot
+    if (honeypot) {
+      // Silently reject bot submissions (don't reveal detection)
+      setIsSubmitted(true);
+      return;
+    }
 
     // Check rate limit
     const rateLimit = checkRateLimit();
@@ -266,6 +274,20 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_template" value="table" />
+                    
+                    {/* Honeypot field - hidden from humans, visible to bots */}
+                    <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
+                      <label htmlFor="website">Website</label>
+                      <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
                     
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
