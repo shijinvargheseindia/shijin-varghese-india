@@ -81,7 +81,7 @@ const NextGenPro = () => {
               <img 
                 src={sviNextgenLogo} 
                 alt="SVI NextGen Pro Logo" 
-                className="w-14 h-14 md:w-16 md:h-16 object-contain rounded-xl shadow-card mb-4"
+                className="h-14 w-14 md:h-20 md:w-20 object-contain rounded-xl shadow-card mb-4"
               />
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">SVI NextGen Pro</h2>
             </div>

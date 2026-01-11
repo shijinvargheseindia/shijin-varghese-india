@@ -94,7 +94,7 @@ const WealthManagement = () => {
               <img 
                 src={sviWealthLogo} 
                 alt="SVI Wealth Management Logo" 
-                className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-card mb-4"
+                className="h-14 w-14 md:h-20 md:w-20 object-contain rounded-xl shadow-card mb-4"
               />
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">SVI Wealth Management</h2>
             </div>
@@ -165,7 +165,7 @@ const WealthManagement = () => {
             <div className="tricolour-divider" />
           </div>
           
-          <div className="flex flex-col gap-8 max-w-[700px] mx-auto px-4 md:px-0">
+          <div className="flex flex-col gap-6 max-w-md md:max-w-lg mx-auto px-4 md:px-0">
             {[adBanner1, adBanner2, adBanner3].map((banner, index) => (
               <div 
                 key={index}

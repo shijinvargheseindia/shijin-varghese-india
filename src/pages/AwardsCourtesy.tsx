@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
+import { X } from "lucide-react";
 
 import awardPresident from "@/assets/recognition/award-president.jpg";
 import southKorea from "@/assets/recognition/south-korea.jpg";
@@ -96,7 +98,37 @@ const awardsData = [
   },
 ];
 
+interface LightboxState {
+  isOpen: boolean;
+  image: string;
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
 const AwardsCourtesy = () => {
+  const [lightbox, setLightbox] = useState<LightboxState>({
+    isOpen: false,
+    image: "",
+    title: "",
+    subtitle: "",
+    description: ""
+  });
+
+  const openLightbox = (award: typeof awardsData[0]) => {
+    setLightbox({
+      isOpen: true,
+      image: award.image,
+      title: award.title,
+      subtitle: award.subtitle,
+      description: award.description
+    });
+  };
+
+  const closeLightbox = () => {
+    setLightbox(prev => ({ ...prev, isOpen: false }));
+  };
+
   return (
     <Layout>
       <PageHeader
@@ -110,7 +142,8 @@ const AwardsCourtesy = () => {
             {awardsData.map((award, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl border border-border shadow-card overflow-hidden hover:shadow-elegant transition-shadow duration-300"
+                className="bg-card rounded-xl border border-border shadow-card overflow-hidden hover:shadow-elegant transition-shadow duration-300 cursor-pointer"
+                onClick={() => openLightbox(award)}
               >
                 {/* Image */}
                 <div className="aspect-[4/3] overflow-hidden">
@@ -140,6 +173,52 @@ const AwardsCourtesy = () => {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {lightbox.isOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+          onClick={closeLightbox}
+        >
+          <div
+            className="relative bg-card rounded-xl max-w-3xl w-full max-h-[90vh] overflow-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center shadow-lg hover:bg-background transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5 text-foreground" />
+            </button>
+
+            {/* Image */}
+            <div className="w-full bg-muted">
+              <img
+                src={lightbox.image}
+                alt={lightbox.title || lightbox.description}
+                className="w-full h-auto object-contain max-h-[60vh]"
+              />
+            </div>
+
+            {/* Caption */}
+            <div className="p-6">
+              {lightbox.title && (
+                <h3 className="font-serif text-xl font-bold text-foreground mb-1 leading-tight">
+                  {lightbox.title}
+                </h3>
+              )}
+              {lightbox.subtitle && (
+                <p className="text-sm text-saffron font-medium mb-2">{lightbox.subtitle}</p>
+              )}
+              <p className="text-muted-foreground leading-relaxed">
+                {lightbox.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };
