@@ -87,19 +87,19 @@ const WealthManagement = () => {
 
       {/* Logo & Intro Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
-            {/* Logo - Smaller, positioned left */}
-            <div className="flex items-center gap-4 mb-10">
+            {/* Logo - Centered above heading */}
+            <div className="flex flex-col items-center text-center mb-10">
               <img 
                 src={sviWealthLogo} 
                 alt="SVI Wealth Management Logo" 
-                className="w-20 h-20 md:w-24 md:h-24 object-contain rounded-xl shadow-card"
+                className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl shadow-card mb-4"
               />
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">SVI Wealth Management</h2>
             </div>
             
-            <div className="text-center">
+            <div className="text-center max-w-3xl mx-auto">
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 SVI Wealth Management, led by <strong className="text-foreground">Shijin Varghese, Managing Director and Senior Family Wealth Advisor</strong>, is a professional financial advisory practice dedicated to long-term wealth creation, protection, and legacy planning.
               </p>
@@ -165,7 +165,7 @@ const WealthManagement = () => {
             <div className="tricolour-divider" />
           </div>
           
-          <div className="flex flex-col gap-8 max-w-[800px] mx-auto">
+          <div className="flex flex-col gap-8 max-w-[900px] mx-auto px-4 md:px-0">
             {[adBanner1, adBanner2, adBanner3].map((banner, index) => (
               <div 
                 key={index}
@@ -217,34 +217,31 @@ const WealthManagement = () => {
 
       {/* Testimonials Carousel */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="text-center mb-12">
             <h2 className="section-heading">Client Experiences & Testimonials</h2>
             <div className="tricolour-divider" />
           </div>
 
-          <div className="relative max-w-5xl mx-auto">
-            {/* Carousel - Show 2 testimonials on desktop */}
+          <div className="relative max-w-lg mx-auto">
+            {/* Carousel - Show ONE testimonial at a time */}
             <div className="overflow-hidden rounded-xl">
               <div
                 className="flex transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(-${Math.floor(currentTestimonial / 2) * 100}%)` }}
+                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
               >
-                {/* Group testimonials in pairs */}
-                {[0, 2].map((startIndex) => (
+                {testimonialImages.map((image, index) => (
                   <div
-                    key={startIndex}
-                    className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 px-2"
+                    key={index}
+                    className="w-full flex-shrink-0 px-2"
                   >
-                    {testimonialImages.slice(startIndex, startIndex + 2).map((image, idx) => (
-                      <div key={idx} className="bg-card rounded-xl border border-border shadow-card overflow-hidden">
-                        <img 
-                          src={image} 
-                          alt={`Customer testimonial ${startIndex + idx + 1}`}
-                          className="w-full h-auto object-contain"
-                        />
-                      </div>
-                    ))}
+                    <div className="bg-card rounded-xl border border-border shadow-card overflow-hidden max-w-md mx-auto">
+                      <img 
+                        src={image} 
+                        alt={`Customer testimonial ${index + 1}`}
+                        className="w-full h-auto object-contain"
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -253,29 +250,29 @@ const WealthManagement = () => {
             {/* Navigation */}
             <button
               onClick={prevTestimonial}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full bg-background shadow-card flex items-center justify-center hover:shadow-elegant transition-shadow"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 w-10 h-10 rounded-full bg-background shadow-card flex items-center justify-center hover:shadow-elegant transition-shadow"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5 text-foreground" />
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full bg-background shadow-card flex items-center justify-center hover:shadow-elegant transition-shadow"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 w-10 h-10 rounded-full bg-background shadow-card flex items-center justify-center hover:shadow-elegant transition-shadow"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
 
-            {/* Dots - Show 2 dots for 2 groups */}
+            {/* Dots - One per testimonial */}
             <div className="flex justify-center gap-2 mt-6">
-              {[0, 1].map((groupIndex) => (
+              {testimonialImages.map((_, index) => (
                 <button
-                  key={groupIndex}
-                  onClick={() => setCurrentTestimonial(groupIndex * 2)}
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    Math.floor(currentTestimonial / 2) === groupIndex ? "w-8 bg-saffron" : "bg-muted-foreground/30"
+                    currentTestimonial === index ? "w-8 bg-saffron" : "bg-muted-foreground/30"
                   }`}
-                  aria-label={`Go to testimonial group ${groupIndex + 1}`}
+                  aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>

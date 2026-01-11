@@ -37,12 +37,12 @@ const Index = () => {
 
       {/* About Shijin Varghese Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
+        <div className="container mx-auto px-6 md:px-8 lg:px-16">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">ABOUT SHIJIN VARGHESE</h2>
             <div className="w-24 h-1 bg-saffron mx-auto" />
           </div>
-          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed px-4 md:px-0">
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
             <p>
               Shijin Varghese is a deeply patriotic and distinguished global youth humanitarian and social advocate from Kerala, India, with over two decades of dedicated service to societal development. His work spans healthcare, education, poverty alleviation, skill development, tribal welfare, and environmental sustainability, reflecting a strong commitment to equitable and sustainable progress.
             </p>
