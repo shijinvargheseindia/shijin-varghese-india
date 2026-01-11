@@ -89,13 +89,14 @@ const WealthManagement = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Logo */}
-            <div className="flex justify-center mb-12">
+            {/* Logo - Smaller, positioned left */}
+            <div className="flex items-center gap-4 mb-10">
               <img 
                 src={sviWealthLogo} 
                 alt="SVI Wealth Management Logo" 
-                className="w-48 h-48 md:w-56 md:h-56 object-contain rounded-2xl shadow-elegant"
+                className="w-20 h-20 md:w-24 md:h-24 object-contain rounded-xl shadow-card"
               />
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">SVI Wealth Management</h2>
             </div>
             
             <div className="text-center">
@@ -164,7 +165,7 @@ const WealthManagement = () => {
             <div className="tricolour-divider" />
           </div>
           
-          <div className="flex flex-col gap-8 max-w-[1100px] mx-auto">
+          <div className="flex flex-col gap-8 max-w-[800px] mx-auto">
             {[adBanner1, adBanner2, adBanner3].map((banner, index) => (
               <div 
                 key={index}
@@ -173,8 +174,7 @@ const WealthManagement = () => {
                 <img 
                   src={banner} 
                   alt={`Service highlight ${index + 1}`}
-                  className="w-full h-auto object-contain"
-                  style={{ maxWidth: '100%' }}
+                  className="w-full h-auto object-contain mx-auto"
                 />
               </div>
             ))}
@@ -223,23 +223,28 @@ const WealthManagement = () => {
             <div className="tricolour-divider" />
           </div>
 
-          <div className="relative max-w-3xl mx-auto">
-            {/* Carousel */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Carousel - Show 2 testimonials on desktop */}
             <div className="overflow-hidden rounded-xl">
               <div
                 className="flex transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+                style={{ transform: `translateX(-${Math.floor(currentTestimonial / 2) * 100}%)` }}
               >
-                {testimonialImages.map((image, index) => (
+                {/* Group testimonials in pairs */}
+                {[0, 2].map((startIndex) => (
                   <div
-                    key={index}
-                    className="w-full flex-shrink-0"
+                    key={startIndex}
+                    className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 px-2"
                   >
-                    <img 
-                      src={image} 
-                      alt={`Customer testimonial ${index + 1}`}
-                      className="w-full h-auto rounded-xl shadow-lg"
-                    />
+                    {testimonialImages.slice(startIndex, startIndex + 2).map((image, idx) => (
+                      <div key={idx} className="bg-card rounded-xl border border-border shadow-card overflow-hidden">
+                        <img 
+                          src={image} 
+                          alt={`Customer testimonial ${startIndex + idx + 1}`}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
@@ -261,16 +266,16 @@ const WealthManagement = () => {
               <ChevronRight className="w-5 h-5 text-foreground" />
             </button>
 
-            {/* Dots */}
+            {/* Dots - Show 2 dots for 2 groups */}
             <div className="flex justify-center gap-2 mt-6">
-              {testimonialImages.map((_, index) => (
+              {[0, 1].map((groupIndex) => (
                 <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
+                  key={groupIndex}
+                  onClick={() => setCurrentTestimonial(groupIndex * 2)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial ? "w-8 bg-saffron" : "bg-muted-foreground/30"
+                    Math.floor(currentTestimonial / 2) === groupIndex ? "w-8 bg-saffron" : "bg-muted-foreground/30"
                   }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`Go to testimonial group ${groupIndex + 1}`}
                 />
               ))}
             </div>
