@@ -26,10 +26,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Designation Section - Clean white/neutral background */}
+      {/* Designation Section - Highlighted Strip */}
       <section className="py-8 md:py-12 bg-background border-b">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm md:text-base lg:text-lg leading-relaxed max-w-5xl mx-auto text-foreground font-semibold">
+        <div className="container mx-auto px-4 flex justify-center">
+          <p className="text-sm md:text-base lg:text-lg leading-relaxed text-white font-bold bg-navy px-6 py-4 md:px-8 md:py-5 rounded-xl max-w-6xl text-center shadow-lg">
             President of India Awardee for Social Service | Kentucky Colonel, USA | Kerala State Government Awardee – Best Youth Social Worker | World Book of Records Laureate | Indian Government Delegate to South Korea (2014) | Kerala State Government Award – Best NSS Volunteer | Philanthropist | Humanitarian Advocate | Esteemed Motivational Speaker | Strategic Financial & Wealth Advisor | Political & Strategic Marketing Strategist | Dedicated Proponent of India's Progress and Cultural Heritage
           </p>
         </div>
@@ -37,12 +37,12 @@ const Index = () => {
 
       {/* About Shijin Varghese Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">ABOUT SHIJIN VARGHESE</h2>
             <div className="w-24 h-1 bg-saffron mx-auto" />
           </div>
-          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
+          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed px-4 md:px-0">
             <p>
               Shijin Varghese is a deeply patriotic and distinguished global youth humanitarian and social advocate from Kerala, India, with over two decades of dedicated service to societal development. His work spans healthcare, education, poverty alleviation, skill development, tribal welfare, and environmental sustainability, reflecting a strong commitment to equitable and sustainable progress.
             </p>

@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Awards & Recognition", path: "/awards" },
+  { name: "Awards & Courtesy", path: "/awards-courtesy" },
   { name: "Positions Held", path: "/positions" },
   { name: "SVI Wealth Management", path: "/wealth-management" },
   { name: "SVI NextGen Pro", path: "/nextgen-pro" },

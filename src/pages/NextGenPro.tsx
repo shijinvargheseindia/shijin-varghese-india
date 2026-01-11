@@ -75,21 +75,24 @@ const NextGenPro = () => {
       {/* Logo & Quote Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            {/* Logo */}
-            <div className="flex justify-center mb-10">
+          <div className="max-w-4xl mx-auto">
+            {/* Logo - Smaller, positioned with heading */}
+            <div className="flex items-center gap-4 mb-10">
               <img 
                 src={sviNextgenLogo} 
                 alt="SVI NextGen Pro Logo" 
-                className="w-48 h-48 md:w-56 md:h-56 object-contain rounded-2xl shadow-elegant"
+                className="w-20 h-20 md:w-24 md:h-24 object-contain rounded-xl shadow-card"
               />
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">SVI NextGen Pro</h2>
             </div>
             
-            <Quote className="w-12 h-12 text-saffron mx-auto mb-6 opacity-50" />
-            <blockquote className="font-serif text-2xl md:text-3xl text-foreground italic leading-relaxed">
-              "True leadership is not about influence over people, but impact on lives."
-            </blockquote>
-            <div className="w-24 h-1 bg-saffron mx-auto mt-8" />
+            <div className="text-center">
+              <Quote className="w-12 h-12 text-saffron mx-auto mb-6 opacity-50" />
+              <blockquote className="font-serif text-2xl md:text-3xl text-foreground italic leading-relaxed">
+                "True leadership is not about influence over people, but impact on lives."
+              </blockquote>
+              <div className="w-24 h-1 bg-saffron mx-auto mt-8" />
+            </div>
           </div>
         </div>
       </section>

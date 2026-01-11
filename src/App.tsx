@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Awards from "./pages/Awards";
+import AwardsCourtesy from "./pages/AwardsCourtesy";
 import Positions from "./pages/Positions";
 import WealthManagement from "./pages/WealthManagement";
 import NextGenPro from "./pages/NextGenPro";
@@ -21,7 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/awards" element={<Awards />} />
+          <Route path="/awards-courtesy" element={<AwardsCourtesy />} />
           <Route path="/positions" element={<Positions />} />
           <Route path="/wealth-management" element={<WealthManagement />} />
           <Route path="/nextgen-pro" element={<NextGenPro />} />
