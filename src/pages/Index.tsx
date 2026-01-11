@@ -15,9 +15,9 @@ const Index = () => {
       <HeroSlider />
 
       {/* Name & Tagline Section - Immediately Below Hero Slider */}
-      <section className="py-4 md:py-6 bg-navy text-center">
+      <section className="py-6 md:py-10 bg-navy text-center">
         <div className="container mx-auto px-4">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-wide">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 tracking-wide">
             SHIJIN VARGHESE
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto">

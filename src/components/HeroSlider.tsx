@@ -81,7 +81,7 @@ const HeroSlider = () => {
 
   return (
     <section
-      className="relative w-full min-h-[300px] max-h-[65vh] aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-navy pt-16 md:pt-20"
+      className="relative w-full min-h-[50vh] md:min-h-[60vh] max-h-[70vh] aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-navy pt-16 md:pt-20"
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
