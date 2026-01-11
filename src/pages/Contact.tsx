@@ -1,8 +1,19 @@
 import { useState } from "react";
+import { z } from "zod";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { MessageCircle, Mail, Phone, MapPin, Send, CheckCircle, Facebook, Linkedin, Instagram, Youtube } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
+// Validation schema
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email format").max(100, "Email must be less than 100 characters"),
+  phone: z.string().trim().regex(/^[+]?[0-9\s\-()]{10,20}$/, "Invalid phone number format"),
+  message: z.string().max(1000, "Message must be less than 1000 characters").optional(),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
@@ -12,16 +23,40 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name as keyof ContactFormData]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors({});
+
+    // Validate form data
+    const result = contactSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Partial<Record<keyof ContactFormData, string>> = {};
+      result.error.errors.forEach((err) => {
+        const field = err.path[0] as keyof ContactFormData;
+        fieldErrors[field] = err.message;
+      });
+      setErrors(fieldErrors);
+      toast({
+        title: "Validation Error",
+        description: "Please check the form fields and try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     const form = e.currentTarget;
@@ -174,9 +209,11 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all"
+                        maxLength={100}
+                        className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all ${errors.name ? 'border-destructive' : 'border-input'}`}
                         placeholder="Your full name"
                       />
+                      {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
                     </div>
 
                     <div>
@@ -190,9 +227,11 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all"
+                        maxLength={20}
+                        className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all ${errors.phone ? 'border-destructive' : 'border-input'}`}
                         placeholder="Your phone number"
                       />
+                      {errors.phone && <p className="text-destructive text-sm mt-1">{errors.phone}</p>}
                     </div>
 
                     <div>
@@ -206,9 +245,11 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all"
+                        maxLength={100}
+                        className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all ${errors.email ? 'border-destructive' : 'border-input'}`}
                         placeholder="your@email.com"
                       />
+                      {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
                     </div>
 
                     <div>
@@ -221,9 +262,11 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleChange}
                         rows={4}
-                        className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all resize-none"
+                        maxLength={1000}
+                        className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all resize-none ${errors.message ? 'border-destructive' : 'border-input'}`}
                         placeholder="Your message (optional)"
                       />
+                      {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
                     </div>
 
                     <button
