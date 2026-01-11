@@ -15,6 +15,63 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+// Rate limiting constants
+const RATE_LIMIT_KEY = "contact_form_submissions";
+const MAX_SUBMISSIONS = 3; // Max submissions allowed
+const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in milliseconds
+
+const checkRateLimit = (): { allowed: boolean; remainingTime?: number } => {
+  try {
+    const stored = localStorage.getItem(RATE_LIMIT_KEY);
+    if (!stored) return { allowed: true };
+
+    const submissions: number[] = JSON.parse(stored);
+    const now = Date.now();
+    
+    // Filter out old submissions outside the rate limit window
+    const recentSubmissions = submissions.filter(
+      (time) => now - time < RATE_LIMIT_WINDOW
+    );
+
+    if (recentSubmissions.length >= MAX_SUBMISSIONS) {
+      const oldestSubmission = Math.min(...recentSubmissions);
+      const remainingTime = RATE_LIMIT_WINDOW - (now - oldestSubmission);
+      return { allowed: false, remainingTime };
+    }
+
+    return { allowed: true };
+  } catch {
+    return { allowed: true };
+  }
+};
+
+const recordSubmission = () => {
+  try {
+    const stored = localStorage.getItem(RATE_LIMIT_KEY);
+    const submissions: number[] = stored ? JSON.parse(stored) : [];
+    const now = Date.now();
+    
+    // Filter and add new submission
+    const recentSubmissions = submissions.filter(
+      (time) => now - time < RATE_LIMIT_WINDOW
+    );
+    recentSubmissions.push(now);
+    
+    localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(recentSubmissions));
+  } catch {
+    // Silently fail if localStorage is unavailable
+  }
+};
+
+const formatRemainingTime = (ms: number): string => {
+  const minutes = Math.ceil(ms / 60000);
+  if (minutes >= 60) {
+    const hours = Math.floor(minutes / 60);
+    return `${hours} hour${hours > 1 ? 's' : ''}`;
+  }
+  return `${minutes} minute${minutes > 1 ? 's' : ''}`;
+};
+
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -39,6 +96,17 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({});
+
+    // Check rate limit
+    const rateLimit = checkRateLimit();
+    if (!rateLimit.allowed) {
+      toast({
+        title: "Too Many Submissions",
+        description: `Please wait ${formatRemainingTime(rateLimit.remainingTime!)} before submitting again.`,
+        variant: "destructive",
+      });
+      return;
+    }
 
     // Validate form data
     const result = contactSchema.safeParse(formData);
@@ -72,6 +140,7 @@ const Contact = () => {
       });
 
       if (response.ok) {
+        recordSubmission(); // Record successful submission for rate limiting
         setIsSubmitted(true);
         toast({
           title: "Message Sent Successfully!",
