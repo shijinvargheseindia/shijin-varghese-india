@@ -1,6 +1,5 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
-import { Award } from "lucide-react";
 
 import awardPresident from "@/assets/recognition/award-president.jpg";
 import southKorea from "@/assets/recognition/south-korea.jpg";
@@ -12,6 +11,9 @@ import rakatNayak from "@/assets/recognition/rakat-nayak.jpg";
 import rashtriyaKarmayogi from "@/assets/recognition/rashtriya-karmayogi.jpg";
 import presidentMurmu from "@/assets/recognition/president-murmu.jpg";
 import governorKerala from "@/assets/recognition/governor-kerala.jpg";
+import governorMizoram from "@/assets/recognition/governor-mizoram.jpg";
+import brazilMinister from "@/assets/recognition/brazil-minister.jpg";
+import speakerKerala from "@/assets/recognition/speaker-kerala.jpg";
 
 const awardsData = [
   {
@@ -75,19 +77,19 @@ const awardsData = [
     description: "Courtesy visit to the Honourable Governor of Kerala, Shri Arif Mohammed Khan."
   },
   {
-    image: null,
+    image: governorMizoram,
     title: "",
     subtitle: "",
     description: "Courtesy visit to the Honourable Governor of Mizoram, Shri Kummanam Rajasekharan."
   },
   {
-    image: null,
+    image: brazilMinister,
     title: "",
     subtitle: "",
     description: "Courtesy meeting with Dr. Luiz Claudio Costa, Vice-Minister of Education, Federative Republic of Brazil."
   },
   {
-    image: null,
+    image: speakerKerala,
     title: "",
     subtitle: "",
     description: "Courtesy Visit to the Honourable Speaker of Kerala, Shri A. N. Shamseer."
@@ -103,28 +105,21 @@ const AwardsCourtesy = () => {
       />
 
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {awardsData.map((award, index) => (
               <div
                 key={index}
                 className="bg-card rounded-xl border border-border shadow-card overflow-hidden hover:shadow-elegant transition-shadow duration-300"
               >
-                {/* Image or Placeholder */}
-                {award.image ? (
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src={award.image}
-                      alt={award.title || award.description}
-                      className="w-full h-full object-contain bg-muted"
-                    />
-                  </div>
-                ) : (
-                  <div className="aspect-[4/3] bg-muted flex flex-col items-center justify-center">
-                    <Award className="w-16 h-16 text-saffron/50 mb-4" />
-                    <span className="text-sm text-muted-foreground">Image Coming Soon</span>
-                  </div>
-                )}
+                {/* Image */}
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={award.image}
+                    alt={award.title || award.description}
+                    className="w-full h-full object-contain bg-muted"
+                  />
+                </div>
                 
                 {/* Caption */}
                 <div className="p-5">

@@ -74,21 +74,21 @@ const NextGenPro = () => {
 
       {/* Logo & Quote Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
-            {/* Logo - Smaller, positioned with heading */}
-            <div className="flex items-center gap-4 mb-10">
+            {/* Logo - Centered above heading */}
+            <div className="flex flex-col items-center text-center mb-10">
               <img 
                 src={sviNextgenLogo} 
                 alt="SVI NextGen Pro Logo" 
-                className="w-20 h-20 md:w-24 md:h-24 object-contain rounded-xl shadow-card"
+                className="w-14 h-14 md:w-16 md:h-16 object-contain rounded-xl shadow-card mb-4"
               />
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">SVI NextGen Pro</h2>
             </div>
             
             <div className="text-center">
               <Quote className="w-12 h-12 text-saffron mx-auto mb-6 opacity-50" />
-              <blockquote className="font-serif text-2xl md:text-3xl text-foreground italic leading-relaxed">
+              <blockquote className="font-serif text-2xl md:text-3xl text-foreground italic leading-relaxed max-w-3xl mx-auto px-4">
                 "True leadership is not about influence over people, but impact on lives."
               </blockquote>
               <div className="w-24 h-1 bg-saffron mx-auto mt-8" />
@@ -99,8 +99,8 @@ const NextGenPro = () => {
 
       {/* About */}
       <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
             <p>
               SVI NextGen Pro is led by Shijin Varghese, a nationally and internationally recognized youth mentor, humanitarian leader, and transformation coach, dedicated to shaping purpose-driven individuals, future-ready professionals, and values-based leaders.
             </p>
