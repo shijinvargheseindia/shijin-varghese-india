@@ -40,7 +40,7 @@ const Index = () => {
         <div className="container mx-auto px-6 md:px-8 lg:px-16">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">ABOUT SHIJIN VARGHESE</h2>
-            <div className="w-24 h-1 bg-saffron mx-auto" />
+            <div className="tricolour-divider" />
           </div>
           <div className="max-w-3xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed text-justify">
             <p>
@@ -132,7 +132,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Key Areas of Impact</h2>
-            <div className="w-24 h-1 bg-saffron mx-auto" />
+            <div className="tricolour-divider" />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
