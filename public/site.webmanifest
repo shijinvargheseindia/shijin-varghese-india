@@ -1,0 +1,22 @@
+{
+  "name": "Shijin Varghese | Global Youth Humanitarian Leader",
+  "short_name": "SVI",
+  "description": "Official website of Shijin Varghese - Global youth humanitarian and social advocate from Kerala, India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#FF9933",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

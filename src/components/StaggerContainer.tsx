@@ -1,5 +1,5 @@
 import { motion, Variants } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, forwardRef } from "react";
 
 interface StaggerContainerProps {
   children: ReactNode;
@@ -15,7 +15,7 @@ const itemVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut",
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
@@ -47,18 +47,21 @@ export const StaggerContainer = ({
   );
 };
 
-export const StaggerItem = ({
-  children,
-  className = "",
-}: {
+interface StaggerItemProps {
   children: ReactNode;
   className?: string;
-}) => {
-  return (
-    <motion.div variants={itemVariants} className={className}>
-      {children}
-    </motion.div>
-  );
-};
+}
+
+export const StaggerItem = forwardRef<HTMLDivElement, StaggerItemProps>(
+  ({ children, className = "" }, ref) => {
+    return (
+      <motion.div ref={ref} variants={itemVariants} className={className}>
+        {children}
+      </motion.div>
+    );
+  }
+);
+
+StaggerItem.displayName = "StaggerItem";
 
 export default StaggerContainer;
