@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -29,79 +30,133 @@ const Header = () => {
   }, [location]);
 
   return (
-    <header
+    <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background shadow-elegant"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-saffron via-background to-india-green flex items-center justify-center shadow-lg group-hover:shadow-glow-saffron transition-shadow duration-300">
+            <motion.div 
+              className="relative w-12 h-12 rounded-full bg-gradient-to-br from-saffron via-background to-india-green flex items-center justify-center shadow-lg group-hover:shadow-glow-saffron transition-shadow duration-300"
+              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <span className="font-serif font-bold text-xl text-navy">SVI</span>
-            </div>
-            <span className="font-serif text-xl font-semibold hidden sm:block transition-colors duration-300 text-foreground">
+            </motion.div>
+            <motion.span 
+              className="font-serif text-xl font-semibold hidden sm:block transition-colors duration-300 text-foreground"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               Shijin Varghese
-            </span>
+            </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Link
+            {navItems.map((item, index) => (
+              <motion.div
                 key={item.path}
-                to={item.path}
-                className={`nav-link ${
-                  location.pathname === item.path
-                    ? "text-saffron"
-                    : "text-foreground hover:text-saffron"
-                }`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.4 }}
               >
-                {item.name}
-              </Link>
+                <Link
+                  to={item.path}
+                  className={`nav-link ${
+                    location.pathname === item.path
+                      ? "text-saffron"
+                      : "text-foreground hover:text-saffron"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
           </nav>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            whileTap={{ scale: 0.9 }}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
-          </button>
+            <AnimatePresence mode="wait">
+              {isMobileMenuOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6 text-foreground" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6 text-foreground" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`lg:hidden fixed inset-x-0 top-20 bg-background shadow-elegant transition-all duration-300 z-50 ${
-          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      >
-        <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
-          {navItems.map((item, index) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                location.pathname === item.path
-                  ? "bg-saffron/10 text-saffron"
-                  : "text-foreground hover:bg-muted"
-              }`}
-              style={{ animationDelay: `${index * 0.05}s` }}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-        {/* Tricolour bar */}
-        <div className="h-1 w-full bg-gradient-to-r from-saffron via-background to-india-green" />
-      </div>
-    </header>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="lg:hidden fixed inset-x-0 top-20 bg-background shadow-elegant z-50"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <nav className="container mx-auto px-4 py-6 flex flex-col gap-2">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.path}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ delay: 0.05 * index }}
+                >
+                  <Link
+                    to={item.path}
+                    className={`px-4 py-3 rounded-lg font-medium transition-all duration-300 block ${
+                      location.pathname === item.path
+                        ? "bg-saffron/10 text-saffron"
+                        : "text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+            {/* Tricolour bar */}
+            <motion.div 
+              className="h-1 w-full bg-gradient-to-r from-saffron via-background to-india-green"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.4 }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 };
 
