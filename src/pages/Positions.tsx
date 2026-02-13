@@ -28,7 +28,7 @@ const currentPositions = [
   "Managing Director and Transformation Coach – SVI NextGen Pro",
   "Chairman – Dr. APJ Abdul Kalam Memorial Sandwanam Charitable Trust, Kerala (Recipient of the Government of Kerala's Best NGO Award)",
   "Kerala State President – National Integrated Forum of Artists and Activists (NIFAA) (Recipient of the Government of India's Prestigious Best NGO Award)",
-  "General Secretary - Central Travancore Development Council (CTDC)",
+  "General Secretary – Central Travancore Development Council (CTDC)",
   "General Secretary – Mar Chrysostom Foundation, Pathanamthitta",
   "Pathanamthitta District Coordinator – 24 Connect",
   "Member – Janamaitri Police Station, Pathanamthitta",
