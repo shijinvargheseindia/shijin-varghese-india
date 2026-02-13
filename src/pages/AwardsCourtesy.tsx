@@ -2,6 +2,7 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { X } from "lucide-react";
+import { motion } from "framer-motion";
 
 import awardPresident from "@/assets/recognition/award-president.jpg";
 import southKorea from "@/assets/recognition/south-korea.jpg";
@@ -140,10 +141,14 @@ const AwardsCourtesy = () => {
         <div className="container mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {awardsData.map((award, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="bg-card rounded-xl border border-border shadow-card overflow-hidden hover:shadow-elegant transition-shadow duration-300 cursor-pointer"
                 onClick={() => openLightbox(award)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: (index % 6) * 0.08 }}
               >
                 {/* Image */}
                 <div className="aspect-[4/3] overflow-hidden">
@@ -168,7 +173,7 @@ const AwardsCourtesy = () => {
                     {award.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
