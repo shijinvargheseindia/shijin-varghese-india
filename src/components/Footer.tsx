@@ -66,7 +66,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
               </motion.div>
               <span className="font-serif text-2xl font-semibold group-hover:text-saffron transition-colors duration-300">Shijin Varghese</span>
             </Link>
-            <p className="text-white/70 mb-6 leading-relaxed max-w-md">
+            <p className="text-white/70 mb-6 leading-relaxed max-w-md text-[0.938rem]">
               Global Youth Humanitarian Leader from Kerala, India. Dedicated to serving humanity, 
               empowering youth, and strengthening the nation through over two decades of social service.
             </p>
@@ -93,7 +93,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-serif text-lg font-semibold mb-4 text-saffron">Quick Links</h4>
+            <h4 className="font-serif text-lg font-semibold mb-5 text-saffron tracking-tight">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <motion.li 
@@ -116,7 +116,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-serif text-lg font-semibold mb-4 text-saffron">Contact</h4>
+            <h4 className="font-serif text-lg font-semibold mb-5 text-saffron tracking-tight">Contact</h4>
             <ul className="space-y-3">
               <motion.li whileHover={{ x: 3 }} transition={{ type: "spring", stiffness: 300 }}>
                 <a

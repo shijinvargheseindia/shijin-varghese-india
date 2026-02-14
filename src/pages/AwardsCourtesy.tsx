@@ -162,7 +162,7 @@ const AwardsCourtesy = () => {
                 {/* Caption */}
                 <div className="p-5">
                   {award.title && (
-                    <h3 className="font-serif text-lg font-bold text-foreground mb-1 leading-tight">
+                    <h3 className="font-serif text-lg font-bold text-foreground mb-1 leading-tight tracking-tight">
                       {award.title}
                     </h3>
                   )}

@@ -338,7 +338,7 @@ const Contact = () => {
                           onChange={handleChange}
                           required
                           maxLength={field.maxLength}
-                          className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all ${errors[field.id as keyof ContactFormData] ? 'border-destructive' : 'border-input'}`}
+                          className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all ${errors[field.id as keyof ContactFormData] ? 'border-destructive' : 'border-input'}`}
                           placeholder={field.placeholder}
                         />
                         {errors[field.id as keyof ContactFormData] && <p className="text-destructive text-sm mt-1">{errors[field.id as keyof ContactFormData]}</p>}
@@ -361,7 +361,7 @@ const Contact = () => {
                         onChange={handleChange}
                         rows={4}
                         maxLength={1000}
-                        className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all resize-none ${errors.message ? 'border-destructive' : 'border-input'}`}
+                        className={`w-full px-4 py-3 rounded-lg border bg-background text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-saffron focus:border-transparent outline-none transition-all resize-none ${errors.message ? 'border-destructive' : 'border-input'}`}
                         placeholder="Your message (optional)"
                       />
                       {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}

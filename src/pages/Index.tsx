@@ -47,7 +47,7 @@ const Index = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 md:px-8 lg:px-16">
           <ScrollReveal variant="fadeUp" className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">ABOUT SHIJIN VARGHESE</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">ABOUT SHIJIN VARGHESE</h2>
             <div className="tricolour-divider" />
           </ScrollReveal>
           <ScrollReveal variant="fadeUp" delay={0.2}>
@@ -124,10 +124,10 @@ const Index = () => {
               <StaggerItem key={index}>
                 <div className="text-center p-6 rounded-xl bg-background shadow-card hover:shadow-elegant transition-shadow duration-300">
                   <stat.icon className="w-10 h-10 mx-auto mb-3 text-saffron" />
-                  <div className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-1">
+                  <div className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-1 tracking-tight">
                     {stat.number}
                   </div>
-                  <div className="text-muted-foreground text-sm">{stat.label}</div>
+                  <div className="text-muted-foreground text-sm tracking-wide">{stat.label}</div>
                 </div>
               </StaggerItem>
             ))}
@@ -140,7 +140,7 @@ const Index = () => {
         <div className="absolute inset-0 opacity-5 chakra-pattern" />
         <div className="container mx-auto px-4 relative z-10">
           <ScrollReveal variant="fadeUp" className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">Key Areas of Impact</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 tracking-tight">Key Areas of Impact</h2>
             <div className="tricolour-divider" />
           </ScrollReveal>
 

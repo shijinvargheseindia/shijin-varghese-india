@@ -114,17 +114,35 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    image-rendering: auto;
+  }
+
+  ::selection {
+    background-color: hsl(var(--saffron) / 0.2);
+    color: hsl(var(--foreground));
   }
 }
 
 @layer components {
   /* Tricolour underline animation for nav links */
   .nav-link {
-    @apply relative px-4 py-2 text-sm font-medium transition-colors duration-300;
+    @apply relative px-4 py-2 text-sm font-medium transition-colors duration-300 tracking-[0.01em];
   }
   
   .nav-link::after {
@@ -139,7 +157,7 @@
 
   /* Hero button styles */
   .btn-hero-primary {
-    @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300;
+    @apply px-7 py-3.5 rounded-lg font-semibold text-white transition-all duration-300 tracking-wide text-[0.938rem];
     background: linear-gradient(135deg, hsl(var(--saffron)) 0%, hsl(30, 100%, 55%) 100%);
     box-shadow: 0 4px 15px hsla(24, 100%, 60%, 0.4);
   }
@@ -150,7 +168,7 @@
   }
 
   .btn-hero-secondary {
-    @apply px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300;
+    @apply px-7 py-3.5 rounded-lg font-semibold text-white transition-all duration-300 tracking-wide text-[0.938rem];
     background: linear-gradient(135deg, hsl(var(--india-green)) 0%, hsl(140, 70%, 35%) 100%);
     box-shadow: 0 4px 15px hsla(136, 83%, 28%, 0.4);
   }
@@ -197,17 +215,17 @@
 
   /* Section styling */
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight;
     font-family: 'Playfair Display', serif;
   }
 
   .section-subheading {
-    @apply text-lg text-muted-foreground max-w-2xl;
+    @apply text-lg text-muted-foreground max-w-2xl leading-relaxed;
   }
 
   /* Card styles */
   .card-tricolour {
-    @apply relative overflow-hidden rounded-xl bg-card;
+    @apply relative overflow-hidden rounded-xl bg-card border border-border/40;
     box-shadow: var(--shadow-card);
   }
   
