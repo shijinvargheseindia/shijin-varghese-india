@@ -104,7 +104,7 @@ const PositionCard = ({ position, index }: PositionCardProps) => (
 
     <div className="pb-6">
       <div className="bg-card rounded-lg border border-border/60 px-5 py-4 shadow-[0_1px_3px_0_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_-2px_rgba(0,0,0,0.08)] transition-shadow duration-300">
-        <p className="font-semibold text-foreground leading-snug text-[0.95rem]">
+        <p className="font-semibold text-foreground leading-snug text-[0.95rem] tracking-tight">
           {position.role}
         </p>
         {position.organization && (
@@ -144,7 +144,7 @@ const PositionSection = ({ title, icon: Icon, positions }: PositionSectionProps)
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
             <Icon className="w-5 h-5 text-primary" />
           </div>
-          <h2 className="font-serif text-xl md:text-2xl font-bold text-foreground tracking-tight">
+          <h2 className="font-serif text-xl md:text-2xl font-bold text-foreground tracking-tight leading-tight">
             {title}
           </h2>
         </motion.div>
