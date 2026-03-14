@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import { Link } from "react-router-dom";
@@ -57,6 +57,15 @@ const WealthManagement = () => {
 
   const prevTestimonial = useCallback(() => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonialImages.length) % testimonialImages.length);
+  }, []);
+
+  useEffect(() => {
+    // Add noindex meta tag to prevent this page from appearing in search results
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, nofollow';
+    document.head.appendChild(meta);
+    return () => { document.head.removeChild(meta); };
   }, []);
 
   useEffect(() => {
