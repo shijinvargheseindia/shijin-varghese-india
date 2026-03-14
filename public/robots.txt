@@ -1,8 +1,10 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /svi-wealth-management
 
 User-agent: Bingbot
 Allow: /
+Disallow: /svi-wealth-management
 
 User-agent: Twitterbot
 Allow: /
@@ -12,3 +14,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /svi-wealth-management
+
+Sitemap: https://shijinvarghese.in/sitemap.xml
