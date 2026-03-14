@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,7 +15,25 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+/**
+ * Block indexing on non-primary domains (e.g. lovable.app preview/published URLs).
+ * Only shijinvarghese.in should be indexed by search engines.
+ */
+const useNoIndexNonPrimary = () => {
+  useEffect(() => {
+    if (window.location.hostname !== "shijinvarghese.in" && window.location.hostname !== "www.shijinvarghese.in") {
+      const meta = document.createElement("meta");
+      meta.name = "robots";
+      meta.content = "noindex, nofollow";
+      document.head.appendChild(meta);
+      return () => { document.head.removeChild(meta); };
+    }
+  }, []);
+};
+
+const App = () => {
+  useNoIndexNonPrimary();
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
