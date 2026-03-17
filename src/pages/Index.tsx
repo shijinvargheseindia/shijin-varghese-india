@@ -122,8 +122,8 @@ const Index = () => {
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {impactStats.map((stat, index) => (
               <StaggerItem key={index}>
-                <div className="text-center p-6 rounded-xl bg-background shadow-card hover:shadow-elegant transition-shadow duration-300">
-                  <stat.icon className="w-10 h-10 mx-auto mb-3 text-saffron" />
+                <div className="text-center p-6 rounded-xl bg-background shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 group">
+                  <stat.icon className="w-10 h-10 mx-auto mb-3 text-saffron group-hover:scale-110 transition-transform duration-300" />
                   <div className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-1 tracking-tight">
                     {stat.number}
                   </div>
@@ -168,8 +168,8 @@ const Index = () => {
               }
             ].map((area, index) => (
               <StaggerItem key={index}>
-                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-colors duration-300 h-full">
-                  <area.icon className="w-12 h-12 text-saffron mb-4" />
+                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 hover:border-saffron/30 hover:-translate-y-1 transition-all duration-300 h-full group">
+                  <area.icon className="w-12 h-12 text-saffron mb-4 group-hover:scale-110 transition-transform duration-300" />
                   <h3 className="font-serif text-xl font-semibold mb-3">{area.title}</h3>
                   <p className="text-white/70 text-sm leading-relaxed">{area.description}</p>
                 </div>
