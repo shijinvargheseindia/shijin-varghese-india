@@ -8,10 +8,12 @@ interface PageHeaderProps {
 const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
   return (
     <section className="pt-32 pb-16 bg-navy relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-5 chakra-pattern" />
+      {/* Subtle pattern */}
+      <div className="absolute inset-0 opacity-[0.03] chakra-pattern" />
+      
+      {/* Top accent line */}
       <motion.div 
-        className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-saffron via-white to-india-green"
+        className="absolute top-0 left-0 right-0 h-0.5 bg-saffron"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -29,7 +31,7 @@ const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
           </motion.h1>
           {subtitle && (
             <motion.p 
-              className="text-lg text-white/70 max-w-2xl mx-auto"
+              className="text-lg text-white/60 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
@@ -38,7 +40,7 @@ const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
             </motion.p>
           )}
           <motion.div 
-            className="tricolour-divider mt-6"
+            className="h-1 w-16 mx-auto rounded-full bg-saffron mt-6"
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}

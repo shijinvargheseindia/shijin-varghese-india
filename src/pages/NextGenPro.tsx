@@ -118,7 +118,7 @@ const NextGenPro = () => {
             {trustedBy.map((org, index) => (
               <motion.div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-lg p-4 flex items-center gap-3 hover:bg-white/10 transition-colors duration-300"
+                className="bg-white/[0.04] rounded-lg p-4 flex items-center gap-3 border border-white/[0.06] hover:bg-white/[0.08] transition-colors duration-300"
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -147,7 +147,7 @@ const NextGenPro = () => {
             ].map((section, sIdx) => (
               <motion.div
                 key={sIdx}
-                className="bg-card p-8 rounded-xl border border-border shadow-sm"
+                className="bg-card p-8 rounded-xl border border-border/50 shadow-card hover:shadow-card-hover transition-shadow duration-300"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
