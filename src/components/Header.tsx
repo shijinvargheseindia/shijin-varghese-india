@@ -21,7 +21,7 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,24 +31,34 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background shadow-elegant"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-xl shadow-elegant h-16"
+          : "bg-background shadow-elegant h-20"
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <motion.div 
-              className="relative w-12 h-12 rounded-full bg-gradient-to-br from-saffron via-background to-india-green flex items-center justify-center shadow-lg group-hover:shadow-glow-saffron transition-shadow duration-300"
+              className={`relative rounded-full bg-gradient-to-br from-saffron via-background to-india-green flex items-center justify-center shadow-lg group-hover:shadow-glow-saffron transition-all duration-500 ${
+                isScrolled ? "w-10 h-10" : "w-12 h-12"
+              }`}
               whileHover={{ scale: 1.05, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="font-serif font-bold text-xl text-navy">SVI</span>
+              <span className={`font-serif font-bold text-navy transition-all duration-500 ${
+                isScrolled ? "text-lg" : "text-xl"
+              }`}>SVI</span>
             </motion.div>
             <motion.span 
-              className="font-serif text-xl font-semibold hidden sm:block transition-colors duration-300 text-foreground"
+              className={`font-serif font-semibold hidden sm:block transition-all duration-500 text-foreground ${
+                isScrolled ? "text-lg" : "text-xl"
+              }`}
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
@@ -118,7 +128,7 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="lg:hidden fixed inset-x-0 top-20 bg-background shadow-elegant z-50"
+            className="lg:hidden fixed inset-x-0 top-16 bg-background/95 backdrop-blur-xl shadow-elegant z-50"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
