@@ -139,11 +139,11 @@ const AwardsCourtesy = () => {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {awardsData.map((award, index) => (
               <motion.div
                 key={index}
-                className="bg-card rounded-xl border border-border/50 shadow-card overflow-hidden hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+                className="bg-card rounded-xl border border-border shadow-card overflow-hidden hover:shadow-elegant transition-shadow duration-300 cursor-pointer"
                 onClick={() => openLightbox(award)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ const AwardsCourtesy = () => {
                   <img
                     src={award.image}
                     alt={award.title || award.description}
-                    className="w-full h-full object-contain bg-muted group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-full object-contain bg-muted"
                   />
                 </div>
                 

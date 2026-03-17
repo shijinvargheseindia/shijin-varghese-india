@@ -114,7 +114,7 @@ const WealthManagement = () => {
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center p-6 rounded-xl bg-white/[0.04] border border-white/[0.08]"
+                className="text-center p-6 rounded-xl bg-white/5 backdrop-blur-sm"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -139,7 +139,7 @@ const WealthManagement = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="card-tricolour bg-card p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
+                className="card-tricolour bg-card p-6 hover:shadow-elegant transition-shadow duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}

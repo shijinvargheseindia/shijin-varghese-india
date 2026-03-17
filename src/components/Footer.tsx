@@ -37,9 +37,9 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
   return (
     <footer ref={ref} className="bg-navy text-white">
-      {/* Saffron accent top border */}
+      {/* Tricolour top border with animation */}
       <motion.div 
-        className="h-0.5 w-full bg-saffron"
+        className="h-1.5 w-full bg-gradient-to-r from-saffron via-white to-india-green"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
@@ -58,15 +58,15 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           <motion.div variants={itemVariants} className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4 hover:opacity-90 transition-opacity group">
               <motion.div 
-                className="w-11 h-11 rounded-full bg-saffron/20 border border-saffron/30 flex items-center justify-center"
-                whileHover={{ scale: 1.1 }}
+                className="w-12 h-12 rounded-full bg-gradient-to-br from-saffron via-white to-india-green flex items-center justify-center"
+                whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <span className="font-serif font-bold text-lg text-saffron">SVI</span>
+                <span className="font-serif font-bold text-lg text-navy">SVI</span>
               </motion.div>
               <span className="font-serif text-2xl font-semibold group-hover:text-saffron transition-colors duration-300">Shijin Varghese</span>
             </Link>
-            <p className="text-white/50 mb-6 leading-relaxed max-w-md text-[0.938rem]">
+            <p className="text-white/70 mb-6 leading-relaxed max-w-md text-[0.938rem]">
               Global Youth Humanitarian Leader from Kerala, India. Dedicated to serving humanity, 
               empowering youth, and strengthening the nation through over two decades of social service.
             </p>
@@ -77,15 +77,15 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center hover:bg-saffron hover:border-saffron transition-all duration-300"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-saffron transition-colors duration-300"
                   aria-label={social.label}
-                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileHover={{ scale: 1.15, y: -3 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
                 >
-                  <social.icon className="w-4 h-4" />
+                  <social.icon className="w-5 h-5" />
                 </motion.a>
               ))}
             </div>
@@ -94,7 +94,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
             <h4 className="font-serif text-lg font-semibold mb-5 text-saffron tracking-tight">Quick Links</h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <motion.li 
                   key={link.path}
@@ -105,7 +105,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                 >
                   <Link
                     to={link.path}
-                    className="text-white/50 hover:text-saffron transition-colors duration-300 inline-block hover:translate-x-1 transform text-sm"
+                    className="text-white/70 hover:text-saffron transition-colors duration-300 inline-block hover:translate-x-1 transform"
                   >
                     {link.name}
                   </Link>
@@ -123,7 +123,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
                   href="https://wa.me/919633508448"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white/50 hover:text-saffron transition-colors duration-300 text-sm"
+                  className="flex items-center gap-3 text-white/70 hover:text-india-green transition-colors duration-300"
                 >
                   <Phone className="w-4 h-4" />
                   <span>+91 96335 08448</span>
@@ -132,14 +132,14 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
               <motion.li whileHover={{ x: 3 }} transition={{ type: "spring", stiffness: 300 }}>
                 <a
                   href="mailto:shijinv.india@gmail.com"
-                  className="flex items-center gap-3 text-white/50 hover:text-saffron transition-colors duration-300 text-sm"
+                  className="flex items-center gap-3 text-white/70 hover:text-saffron transition-colors duration-300"
                 >
                   <Mail className="w-4 h-4" />
                   <span>shijinv.india@gmail.com</span>
                 </a>
               </motion.li>
-              <li className="flex items-start gap-3 text-white/50 text-sm">
-                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              <li className="flex items-start gap-3 text-white/70">
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>Kerala, India</span>
               </li>
             </ul>
@@ -148,15 +148,15 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
 
         {/* Copyright */}
         <motion.div 
-          className="mt-12 pt-8 border-t border-white/[0.06] text-center text-white/40"
+          className="mt-12 pt-8 border-t border-white/10 text-center text-white/50"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <p className="text-sm">&copy; {currentYear} Shijin Varghese. All rights reserved.</p>
+          <p>&copy; {currentYear} Shijin Varghese. All rights reserved.</p>
           <motion.p 
-            className="mt-2 text-xs text-white/30"
+            className="mt-2 text-sm"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
