@@ -114,7 +114,7 @@ const WealthManagement = () => {
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center p-6 rounded-xl bg-white/5 backdrop-blur-sm"
+                className="text-center p-6 rounded-xl bg-white/[0.04] border border-white/[0.08]"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
