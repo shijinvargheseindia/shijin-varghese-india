@@ -147,7 +147,7 @@ const NextGenPro = () => {
             ].map((section, sIdx) => (
               <motion.div
                 key={sIdx}
-                className="bg-card p-8 rounded-xl border border-border shadow-sm"
+                className="bg-card p-8 rounded-xl border border-border/50 shadow-card hover:shadow-card-hover transition-shadow duration-300"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

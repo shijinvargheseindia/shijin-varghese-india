@@ -103,7 +103,7 @@ const PositionCard = ({ position, index }: PositionCardProps) => (
     <div className="absolute left-[5px] top-6 bottom-0 w-[2px] bg-border" />
 
     <div className="pb-6">
-      <div className="bg-card rounded-lg border border-border/60 px-5 py-4 shadow-[0_1px_3px_0_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_-2px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+      <div className="bg-card rounded-lg border border-border/50 px-5 py-4 shadow-card hover:shadow-card-hover transition-shadow duration-300">
         <p className="font-semibold text-foreground leading-snug text-[0.95rem] tracking-tight">
           {position.role}
         </p>

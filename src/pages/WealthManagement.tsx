@@ -139,7 +139,7 @@ const WealthManagement = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="card-tricolour bg-card p-6 hover:shadow-elegant transition-shadow duration-300"
+                className="card-tricolour bg-card p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
