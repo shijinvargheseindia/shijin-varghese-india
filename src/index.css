@@ -475,7 +475,7 @@
 
 /* Enhanced card hover with glow */
 .hover-card-glow {
-  @apply transition-all duration-400;
+  @apply transition-all duration-300;
 }
 
 .hover-card-glow:hover {
