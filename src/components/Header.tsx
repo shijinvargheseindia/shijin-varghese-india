@@ -45,13 +45,13 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <motion.div 
-              className={`relative rounded-full bg-gradient-to-br from-saffron via-background to-india-green flex items-center justify-center shadow-lg group-hover:shadow-glow-saffron transition-all duration-500 ${
+              className={`relative rounded-full bg-navy/5 border border-saffron/20 flex items-center justify-center transition-all duration-500 ${
                 isScrolled ? "w-10 h-10" : "w-12 h-12"
               }`}
-              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className={`font-serif font-bold text-navy transition-all duration-500 ${
+              <span className={`font-serif font-bold text-saffron transition-all duration-500 ${
                 isScrolled ? "text-lg" : "text-xl"
               }`}>SVI</span>
             </motion.div>
