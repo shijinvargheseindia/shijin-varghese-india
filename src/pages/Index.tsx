@@ -16,8 +16,8 @@ const Index = () => {
     <Layout>
       <HeroSlider />
 
-      {/* Name & Tagline Section - Immediately Below Hero Slider */}
-      <section className="py-6 md:py-10 bg-navy text-center">
+      {/* Name & Tagline */}
+      <section className="py-8 md:py-12 bg-navy text-center">
         <div className="container mx-auto px-4">
           <ScrollReveal variant="fadeUp">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 tracking-wide">
@@ -25,29 +25,37 @@ const Index = () => {
             </h1>
           </ScrollReveal>
           <ScrollReveal variant="fadeUp" delay={0.2}>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto font-light">
               Serving Humanity. Empowering Youth. Strengthening India.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Designation Section - Highlighted Strip */}
-      <section className="py-8 md:py-12 bg-background border-b">
+      {/* Designation Strip */}
+      <section className="py-8 md:py-10 bg-background">
         <div className="container mx-auto px-4 flex justify-center">
           <ScrollReveal variant="scale">
-            <p className="text-sm md:text-base lg:text-lg leading-relaxed text-white font-bold bg-navy px-6 py-4 md:px-8 md:py-5 rounded-xl max-w-6xl text-center shadow-lg">
-              President of India Awardee for Social Service | Kentucky Colonel, USA | Kerala State Government Awardee – Best Youth Social Worker | World Book of Records Laureate | Indian Government Delegate to South Korea (2014) | Kerala State Government Award – Best NSS Volunteer | Philanthropist | Humanitarian Advocate | Esteemed Motivational Speaker | Strategic Financial & Wealth Advisor | Political & Strategic Marketing Strategist | Dedicated Proponent of India's Progress and Cultural Heritage
-            </p>
+            <div className="relative max-w-5xl">
+              <div className="absolute top-0 left-0 w-1 h-full bg-saffron rounded-full" />
+              <p className="text-sm md:text-base lg:text-lg leading-relaxed text-muted-foreground pl-6 py-2 text-left md:text-center">
+                <span className="text-foreground font-medium">President of India Awardee</span> for Social Service · <span className="text-foreground font-medium">Kentucky Colonel</span>, USA · Kerala State Government Awardee – Best Youth Social Worker · World Book of Records Laureate · Indian Government Delegate to South Korea · Kerala State Award – Best NSS Volunteer · Philanthropist · Humanitarian Advocate · Motivational Speaker · Strategic Financial & Wealth Advisor
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* About Shijin Varghese Section */}
-      <section className="py-16 bg-background">
+      {/* Subtle divider */}
+      <div className="container mx-auto px-4">
+        <div className="h-px bg-border" />
+      </div>
+
+      {/* About Section */}
+      <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-8 lg:px-16">
           <ScrollReveal variant="fadeUp" className="text-center mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">ABOUT SHIJIN VARGHESE</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">About Shijin Varghese</h2>
             <div className="tricolour-divider" />
           </ScrollReveal>
           <ScrollReveal variant="fadeUp" delay={0.2}>
@@ -76,7 +84,6 @@ const Index = () => {
               <p>
                 Through self-employment initiatives, he has empowered individuals by distributing sewing machines, hens, and goats, fostering economic independence.
               </p>
-
               <p>
                 His contributions have been recognized with several prestigious honors, including the Indira Gandhi National Award, presented by the Honorable President of India, Shri Pranab Mukherjee.
               </p>
@@ -115,15 +122,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Impact Stats Section */}
+      {/* Impact Stats */}
       <section className="py-16 bg-muted relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 chakra-pattern" />
+        <div className="absolute inset-0 opacity-[0.03] chakra-pattern" />
         <div className="container mx-auto px-4 relative z-10">
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {impactStats.map((stat, index) => (
               <StaggerItem key={index}>
-                <div className="text-center p-6 rounded-xl bg-background shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 group">
-                  <stat.icon className="w-10 h-10 mx-auto mb-3 text-saffron group-hover:scale-110 transition-transform duration-300" />
+                <div className="text-center p-6 rounded-xl bg-card border border-border/50 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 group">
+                  <stat.icon className="w-9 h-9 mx-auto mb-3 text-saffron group-hover:scale-110 transition-transform duration-300" />
                   <div className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-1 tracking-tight">
                     {stat.number}
                   </div>
@@ -137,11 +144,11 @@ const Index = () => {
 
       {/* Key Areas of Impact */}
       <section className="py-20 bg-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 chakra-pattern" />
+        <div className="absolute inset-0 opacity-[0.03] chakra-pattern" />
         <div className="container mx-auto px-4 relative z-10">
           <ScrollReveal variant="fadeUp" className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 tracking-tight">Key Areas of Impact</h2>
-            <div className="tricolour-divider" />
+            <div className="h-1 w-20 mx-auto rounded-full bg-saffron" />
           </ScrollReveal>
 
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6" staggerDelay={0.15}>
@@ -168,10 +175,12 @@ const Index = () => {
               }
             ].map((area, index) => (
               <StaggerItem key={index}>
-                <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 hover:border-saffron/30 hover:-translate-y-1 transition-all duration-300 h-full group">
-                  <area.icon className="w-12 h-12 text-saffron mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <div className="bg-white/[0.04] backdrop-blur-sm p-6 rounded-xl border border-white/[0.08] hover:bg-white/[0.08] hover:border-saffron/20 hover:-translate-y-1 transition-all duration-300 h-full group">
+                  <div className="w-12 h-12 rounded-lg bg-saffron/10 flex items-center justify-center mb-4 group-hover:bg-saffron/20 transition-colors duration-300">
+                    <area.icon className="w-6 h-6 text-saffron" />
+                  </div>
                   <h3 className="font-serif text-xl font-semibold mb-3">{area.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed">{area.description}</p>
+                  <p className="text-white/60 text-sm leading-relaxed">{area.description}</p>
                 </div>
               </StaggerItem>
             ))}
