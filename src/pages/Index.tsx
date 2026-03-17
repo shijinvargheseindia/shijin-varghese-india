@@ -123,7 +123,7 @@ const Index = () => {
             {impactStats.map((stat, index) => (
               <StaggerItem key={index}>
                 <div className="text-center p-6 rounded-xl bg-background shadow-card hover:shadow-elegant hover:-translate-y-1 transition-all duration-300 group">
-                  <stat.icon className="w-10 h-10 mx-auto mb-3 text-saffron" />
+                  <stat.icon className="w-10 h-10 mx-auto mb-3 text-saffron group-hover:scale-110 transition-transform duration-300" />
                   <div className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-1 tracking-tight">
                     {stat.number}
                   </div>
